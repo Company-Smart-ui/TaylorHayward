@@ -1,0 +1,33 @@
+mixin mob-mnu()
+	+b.menu-mobile--js.d-lg-none
+		+b.BUTTON.toggle-menu-mobile--js(type="button")
+			span
+		+e.inner
+			.container
+				.row
+					.col-12.mb-3
+						a.link-tel(href="tel:(617)6972201") (617) 697-2201
+						br
+						a.link-mail(href="mailto:office@eofund.ru") office@eofund.ru
+				+mnu() 
+	//  mobile menu
+mixin top-nav() 
+	// start top-nav
+	+b.top-nav.block-with-lazy
+		.container
+			.row
+				.col-lg-auto.col
+					+e.logo(href="/")
+						img(src="img/@2x/logo.png", alt="")
+				+e.menu-wrap.col-auto.d-none.d-lg-block
+					+mnu()
+				+e.constants.col-auto.align-self-center.text-right.d-none.d-md-block
+					a.link-tel(href="tel:(617)6972201") (617) 697-2201
+					br
+					a.link-mail(href="mailto:office@eofund.ru") office@eofund.ru
+				.col-auto.align-self-center.d-lg-none
+					+b.BUTTON.toggle-menu-mobile--js.d-lg-none(type="button")
+						span
+
+					
+	// end top-nav

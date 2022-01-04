@@ -1,0 +1,86 @@
+.eventCard {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	picture {
+		@include block(464, 560);
+		margin-bottom: rem(42);
+
+		img, source {
+			@include a-cent;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			@include mt;
+		}
+
+		&:hover {
+			img {
+				filter: brightness(0.8);
+			}
+		}
+	}
+
+	&--imgText {
+		picture {
+			background-color: #fff;
+			// padding: rem(13) rem(40);
+
+			img, source {
+				padding-top: rem(13);
+				padding-bottom: rem(13);
+				object-fit: contain;
+			}
+		}
+	}
+
+	&__body {
+		margin-top: auto;
+		padding-left: 3px;
+		display: flex;
+		flex-direction: column;
+		// height: 100%;
+	}
+
+	&__date {
+		margin-bottom: rem(15);
+	}
+
+	&__btn {
+		max-width: rem(232px);
+		display: block;
+	}
+
+	&__title {
+		color: $body-color;
+		font-family: $mono;
+		letter-spacing: rem(1.2);
+		margin-bottom: rem(13);
+	}
+
+	&__place {
+		margin-bottom: rem(24);
+	}
+
+
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) { }
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+
+	&--blockedCard {
+		// pointer-events: none;
+		opacity: 0.7;
+	}
+
+}

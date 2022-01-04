@@ -1,0 +1,24 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sArticals/_sArticals.pug
+include ../blocks/sTranslations/_sTranslations.pug
+include ../blocks/sAboutFond/_sAboutFond.pug
+
+block variables
+	- let  mainPage= '04-about-fond'
+block title
+	- let  title= 'Главная'
+	title= title
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-nav()
+	//-+sTranslations()
+	+sAboutFond()
+	+footer()
+
+
+	

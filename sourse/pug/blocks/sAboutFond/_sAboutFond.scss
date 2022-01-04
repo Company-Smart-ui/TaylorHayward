@@ -1,0 +1,297 @@
+// start .sAboutFond
+.sAboutFond {
+
+	--sPT: #{rem(37)};
+	--sTPB: #{rem(28)};
+	--sPB: #{rem(10)};
+
+	.section-title{
+
+		h2{
+			font-family: $mono;
+			line-height: (41/30);
+			letter-spacing: 1.8px;
+			margin-bottom: rem(9);
+		}
+
+		&__top-links{
+			display: flex;
+			flex-wrap: wrap;
+
+			a{
+				display: block;
+				font-size: rem(20px);
+				line-height: (29/20);
+
+				margin-right: rem(30);
+				margin-bottom: rem(15);
+				@include media-breakpoint-up(xl){
+					margin-right: rem(61);
+					margin-bottom: rem(18);
+				}
+
+				color: $primary;
+				&:not(.active):hover{
+					color: $black;
+				}
+				&.active{
+					border-bottom: 1px solid $black;
+				}
+			}
+		}
+	}
+
+	&__row{
+		padding-bottom: rem(30);
+		flex-direction: column-reverse;
+		@include media-breakpoint-up(lg){
+			flex-direction: row;
+			@include roww(32px);
+			padding-bottom: rem(16);
+		}
+	}
+	//left col
+	&__txt-content{
+		max-width: 789px;
+		&.list-block{
+			h2{
+				margin-bottom: rem(16);
+			}
+		}
+
+		h2{
+			font-family: $mono;
+			line-height: (41/30);
+			letter-spacing: 1.8px;
+			color: $black;
+
+			margin-bottom: rem(30);
+		}
+		p{
+			font-size: rem(20px);
+			line-height: 1.60;
+
+			margin-bottom: rem(12);
+		}
+
+
+		ul{
+			max-width: 750px;
+
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li{
+				position: relative;
+				padding-bottom: rem(13);
+
+				padding-left: rem(25px);
+				@include media-breakpoint-up(xl){
+					padding-left: rem(48px);
+				}
+
+				&:after{
+					content: '';
+					position: absolute;
+					top: rem(13);
+					left: 0;
+					width: rem(10px);
+					height: rem(10px);
+					border-radius: 50%;
+					border: 1px solid $primary;
+				}
+
+				font-size: rem(20px);
+				line-height: 1.60;
+			}
+		}
+
+		*:last-child{
+			margin-bottom: rem(30);
+			@include media-breakpoint-up(lg){
+				margin-bottom: rem(51);
+			}
+		}
+
+
+	}
+	&__portait-col{
+		margin-top: rem(150);
+		margin-bottom: rem(30);
+		@include media-breakpoint-up(lg){
+			margin-top: rem(260);
+			margin-bottom: 0;
+		}
+
+		@include media-breakpoint-up(xxxl){
+			position: relative;
+			right: -15px;
+			max-width: 650px;
+		}
+		border: 1px solid $primary;
+		padding: 0 !important;
+		height: auto;
+		align-self: flex-start;
+	}
+	&__portrait{
+		position: relative;
+		margin-top: -89px;
+		margin-left: -1px;
+		height: rem(530px);
+
+		img{
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+			@include media-breakpoint-up(sm){
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+	&__portrait-txt{
+		padding: rem(20);
+		@include media-breakpoint-up(sm){
+			padding: rem(25);
+		}
+		@include media-breakpoint-up(xl){
+			padding: rem(44px) rem(56px) rem(42px) rem(51px);
+		}
+		p{
+			font-size: rem(20px);
+			line-height: 1.6;
+		}
+		p:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+
+	//
+	&__partners{
+		h2{
+			font-family: $mono;
+			line-height: (41/30);
+			letter-spacing: 1.8px;
+
+			color: $black;
+
+			margin-bottom: rem(30);
+			@include media-breakpoint-up(lg){
+				margin-bottom: rem(45);
+			}
+		}
+	}
+	//partenrs-item
+	//partenrs-item
+	&__partenrs-item{
+
+	}
+	&__partners-healine{
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		padding-bottom: rem(40);
+		display: flex;
+		width: 100%;
+
+		height: rem(40px);
+		@include media-breakpoint-up(sm){
+			height: rem(57px);
+		}
+
+		span{
+			display: block;
+			background-color: $body-bg;
+			font-weight: bold;
+			font-size: rem(20px);
+			line-height: 1.65;
+			min-height: rem(32px);
+
+			color: $primary;
+
+			margin-left: rem(30);
+			padding: 0 rem(15);
+			@include media-breakpoint-up(sm){
+				margin-top: rem(9);
+				margin-left: rem(43);
+				padding: 0 rem(20);
+			}
+		}
+
+	}
+	&__headline-bg{
+		position: absolute;
+		z-index: -1;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: auto;
+		img{
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&__parners-slider{
+
+		.swiper-container{
+			overflow: visible !important;
+		}
+		.swiper-slide{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			height: rem(170);
+			@include media-breakpoint-up(sm){
+				height: rem(214);
+			}
+
+			width: rem(180);
+			@include media-breakpoint-up(lg){
+				width: rem(240);
+			}
+
+			padding: rem(20);
+			@include media-breakpoint-up(xxxl){
+				padding: 0 0 rem(39px) rem(12px);
+			}
+			img{
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+	}
+	//
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+
+} // end.sAboutFond

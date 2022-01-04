@@ -1,0 +1,81 @@
+mixin eventCard(sl,btn,i,date,title,text)
+	+b.eventCard&attributes(attributes)
+		a(href="№")
+			picture
+				if sl
+					source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/event-${i}.webp` type="image/webp")
+					img.object-fit-js.swiper-lazy(src="#" data-src=`img/@2x/event-${i}.jpg`, alt="")
+				else
+					source.lazy(srcset="#" data-srcset=`img/@2x/webp/event-${i}.webp` type="image/webp")
+					img.object-fit-js.lazy(src="#" data-src=`img/@2x/event-${i}.jpg`, alt="")
+		+e.body
+			+e.date.h5(href="#")= date
+			+e.title.h5(href="#")= title
+			+e.place(href="#")= text
+			if btn
+				+e.btn.btn.btn-primary(href="#") Buy tickets
+
+mixin sEvents()
+	// start sEvents
+	+b.SECTION.sEvents.section#sEvents&attributes(attributes)
+		.container
+			.row
+				.col
+					+b.section-title
+						h2 Events
+						+e.showAll.h5(href="#") view all
+				.col-auto
+					+e.controls
+						.eventSlider-prev
+							img.lazy(src="#" data-src="img/chevron-left-brown.svg", alt="")
+						.eventSlider-next
+							img.lazy(src="#" data-src="img/chevron-right-brown.svg", alt="")
+			+b.eventSlider
+				.swiper-container.eventSlider-js
+					.swiper-wrapper
+						.swiper-slide
+							+eventCard('sl','btn','1','June 30, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')(class="eventCard--imgText")
+						.swiper-slide
+							+eventCard('sl','btn','2','September 15, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+						.swiper-slide
+							+eventCard('sl','btn','3','June 12, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+						.swiper-slide
+							+eventCard('sl','btn','4','June 6, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+
+	// end sEvents
+
+mixin sEvents-upcoming()
+	// start sEvents
+	+b.SECTION.sEvents--upcoming.section#sEvents&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Предстоящие события
+			.row
+				.col-sm-6.col-lg-4
+					+eventCard('','btn','1','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--imgText")
+				.col-sm-6.col-lg-4
+					+eventCard('','btn','2','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')
+				.col-sm-6.col-lg-4
+					+eventCard('','btn','3','12 июня 2020','Возвращение в детство','Малый зал Московской консерватории')
+
+mixin sEvents-Past()
+	// start sEvents
+	+b.SECTION.sEvents--Past.bg-light.section#sEvents&attributes(attributes)
+		.container
+			+b.section-title
+				h2 Прошедшие события
+			.row
+				.col-sm-6.col-lg-4
+					+eventCard('','','4','6 июня 2020','Да здравствуют музы...!','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+				.col-sm-6.col-lg-4
+					+eventCard('','','5','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+				.col-sm-6.col-lg-4
+					+eventCard('','','6','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+				.col-sm-6.col-lg-4
+					+eventCard('','','7','6 июня 2020','Да здравствуют музы...!','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+				.col-sm-6.col-lg-4
+					+eventCard('','','8','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+				.col-sm-6.col-lg-4
+					+eventCard('','','9','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')(class="eventCard--blockedCard")
+			.text-center
+				+e.btn.btn.btn-outline-primary(href="#") Показать еще

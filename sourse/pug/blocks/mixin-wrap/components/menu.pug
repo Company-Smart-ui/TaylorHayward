@@ -1,0 +1,15 @@
+
+//- menu
+mixin mnu()
+	-
+		var nav= {
+			"Home":"/",
+			"Other Albums":"Albums.html",
+			"Rights":"Rights.html",
+			"Contact": "Contact.html", 
+			"About": "About.html"
+			}
+	+b.UL.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
+		each linkPatch, linkName in nav
+			+e.LI.item( itemprop="item" ): +e.A.link(href= linkPatch  itemprop="url")= linkName
+//- /menu

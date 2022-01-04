@@ -1,0 +1,21 @@
+mixin sCardsItem(i,t)
+	+b.sCardsItem(href="#")&attributes(attributes)
+		+e.imgWrap
+			img.lazy(src="#" data-src=`img/@2x/sCards-${i}.jpg` alt="")
+		+e.title.h4= t
+		+e.IMG.autograph.lazy(src="#" data-src="img/autograph.svg", alt="")
+
+mixin sCards()
+	// start sCards
+	+b.sCards#sCards&attributes(attributes)
+		.container
+			+e.row.row
+				.col-sm-6.col-lg-3
+					+sCardsItem('1','ТВОРЧЕСКАЯ ШКОЛА')
+				.col-sm-6.col-lg-3
+					+sCardsItem('2','МЕЖДУНАРОДНЫЕ КОНКУРСЫ')
+				.col-sm-6.col-lg-3
+					+sCardsItem('3','ПРЕМИИ ФОНДА')
+				.col-sm-6.col-lg-3
+					+sCardsItem('4','КОНЦЕРТЫ')
+	// end sCards

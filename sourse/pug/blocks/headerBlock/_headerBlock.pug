@@ -1,0 +1,46 @@
+mixin headerBlock()
+	// start headerBlock
+	+b.headerBlock.section#headerBlock&attributes(attributes)
+		.container
+			.row
+				+e.slCol.col-lg-10.col-xl-9.col-xxxl-8
+					+b.headerSlider
+						.swiper-container.headerSlider-js
+							.swiper-wrapper
+								mixin slide(data)
+									.swiper-slide
+										+e.slide
+											//- +pic(`${data.img}`).picture-bg
+											picture.picture-bg
+												source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/${data.img}.webp` type="image/webp")
+												img.object-fit-js.img-bg.swiper-lazy(src="#" data-src=`img/@2x/${data.img}.png`, alt="")
+											.h1!= data.title
+											+e.btn.btn.btn-primary(href="#") Listen
+								+slide({
+									title: 'Early Recordings',
+									img: 'early_recordings'
+								})
+								+slide({
+									title: 'As The Covering Water of the Sea',
+									img: 'sitting_by_the_window'
+								})
+								+slide({
+									title: 'Ocean of Night',
+									img: 'covering_waters_of_the_sea'
+								})
+								+slide({
+									title: 'Forest Voyage',
+									img: 'sitting-by-the-window-cover'
+								})
+						+e.nav
+							.headerSlider-prev
+								img(src="img/chevron-left.svg", alt="")
+							.headerSlider-pugin
+							.headerSlider-next
+								img(src="img/chevron-right.svg", alt="")
+
+				+e.col.col-lg-2.col-xl-3.col-xxxl-4
+					+e.contentWrapper
+						h1 Taylor Hayward
+
+	// end headerBlock

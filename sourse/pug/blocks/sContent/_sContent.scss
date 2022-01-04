@@ -1,0 +1,13 @@
+// start .sContent
+.sContent {
+	
+	p {
+		@include rfs(#{rem(20px)});
+	}
+
+	@include media-breakpoint-up(xs) {}
+	@include media-breakpoint-between(md, xl) { }
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sContent

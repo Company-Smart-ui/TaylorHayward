@@ -1,0 +1,29 @@
+mixin partnerSlide(i)
+	.swiper-slide
+		+b.partnerSlide
+			picture
+				source.swiper-lazy.res-i(srcset="#" data-srcset=`img/@2x/webp/partnerItem-${i}.webp` type="image/webp")
+				img.object-fit-js.swiper-lazy.res-i(src="#" data-src=`img/@2x/partnerItem-${i}.jpg`, alt="")
+
+mixin sPartners()
+	// start sPartners
+	+b.SECTION.sPartners.section#sPartners&attributes(attributes)
+		.container
+			+b.section-title
+				h2 ПАРТНЕРЫ
+				
+			+b.partnerSlier
+				.partnerSlier-prev
+					img.lazy(src="#" data-src="img/chevron-left-brown.svg", alt="")
+				.partnerSlier-next
+					img.lazy(src="#" data-src="img/chevron-right-brown.svg", alt="")
+				.swiper-container.partnerSlier-js
+					.swiper-wrapper
+						+partnerSlide('1')
+						+partnerSlide('2')
+						+partnerSlide('3')
+						+partnerSlide('1')
+						+partnerSlide('2')
+						+partnerSlide('3')
+						
+	// end sPartners

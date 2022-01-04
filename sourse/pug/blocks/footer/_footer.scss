@@ -1,0 +1,64 @@
+.footer {
+	padding: rem(21) 0;
+	background: $light;
+	margin-top: auto;
+
+	&__lower-col{
+		padding-bottom: rem(20);
+		@include media-breakpoint-up(lg){
+			padding-bottom: 0;
+		}
+	}
+	&__all-rights{
+		font-size: rem(16px);
+		line-height: (20/16);
+	}
+	&__tell{
+		font-size: rem(19px);
+		line-height: (26/19);
+		letter-spacing: 0.06em;
+		font-family: $mono;
+
+		@include mt();
+		color: $black;
+		&:hover{
+			color: $primary;
+		}
+	}
+
+	&__mail{
+		font-size: rem(16px);
+		line-height: (20/16);
+
+		@include mt();
+		color: $primary;
+		&:hover{
+			color: $black;
+		}
+
+		@include media-breakpoint-up(lg) {
+			margin-left: rem(22px);
+		}
+	}
+	&__addres{
+		font-size: rem(16px);
+		line-height: (20/16);
+
+		@include mt();
+		color: $body-color;
+		&:hover{
+			color: $primary;
+		}
+
+		@include media-breakpoint-up(lg){
+			margin-left: rem(19px);
+			margin-right: rem(3px);
+		}
+	}
+
+
+@include media-breakpoint-up(xs) {}
+@include media-breakpoint-between(md, xl) {}
+@include media-breakpoint-only(xl) {}
+@include media-breakpoint-down(xs) {}
+}

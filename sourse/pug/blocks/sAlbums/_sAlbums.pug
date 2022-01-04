@@ -1,0 +1,32 @@
+mixin sAlbums()
+	// start sAlbums
+	+b.SECTION.sAlbums.section#sAlbums&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Albums
+				
+			mixin album(data)
+				+e.album
+					.row
+						.col-md-4
+							+e.imgWrap
+								+pic(`${data.img}`)
+						.col
+							+e.videoWrap
+								if data.videos
+									each video in data.videos
+										video
+											source(src=`video/${video.link}` type="video/mp4")
+			+album({
+				img: 'covering_waters_of_the_sea.png',
+				videos: [
+					{
+						link: 'song1.mp4'
+					},
+					{
+						link: 'song1.mp4'
+					},
+				]
+			})
+
+	// end sAlbums
