@@ -4,10 +4,10 @@ mixin mnu()
 	-
 		var nav= {
 			"Home":"/",
-			"Other Albums":"Albums.html",
-			"Rights":"Rights.html",
-			"Contact": "Contact.html", 
-			"About": "About.html"
+			"Other Albums":"/Albums.html",
+			"Rights":"/Rights.html",
+			"Contact": "/Contact.html",
+			"About": "/About.html"
 			}
 	+b.UL.nav(itemscope itemtype="http://schema.org/SiteNavigationElement")
 		each linkPatch, linkName in nav
