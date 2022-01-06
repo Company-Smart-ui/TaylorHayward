@@ -1,6 +1,6 @@
 mixin eventCard(sl,btn,i,date,title,text)
 	+b.eventCard&attributes(attributes)
-		a(href="№")
+		a(href="#")
 			picture
 				if sl
 					source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/event-${i}.webp` type="image/webp")
@@ -22,60 +22,24 @@ mixin sEvents()
 			.row
 				.col
 					+b.section-title
-						h2 Events
-						+e.showAll.h5(href="#") view all
+						h2 Music
+						+e.showAll.h5(href="/music.html") Listen to everything
 				.col-auto
 					+e.controls
-						.eventSlider-prev
+						button.eventSlider-prev(type="button")
 							img.lazy(src="#" data-src="img/chevron-left-brown.svg", alt="")
-						.eventSlider-next
+						button.eventSlider-next(type="button")
 							img.lazy(src="#" data-src="img/chevron-right-brown.svg", alt="")
 			+b.eventSlider
 				.swiper-container.eventSlider-js
 					.swiper-wrapper
 						.swiper-slide
-							+eventCard('sl','btn','1','June 30, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')(class="eventCard--imgText")
+							<iframe src="https://open.spotify.com/embed/album/7oJyCNSFoqNJt5L2A9pkBX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 						.swiper-slide
-							+eventCard('sl','btn','2','September 15, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+							<iframe src="https://open.spotify.com/embed/album/1ugD376bCCHgoOyIEHRxL9?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 						.swiper-slide
-							+eventCard('sl','btn','3','June 12, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+							<iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 						.swiper-slide
-							+eventCard('sl','btn','4','June 6, 2020','Lorem ipsum dolor sit amet','Lorem ipsum dolor sit amet')
+							<iframe src="https://open.spotify.com/embed/album/3uZKswAssh5KJB64RwyMwp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 	// end sEvents
-
-mixin sEvents-upcoming()
-	// start sEvents
-	+b.SECTION.sEvents--upcoming.section#sEvents&attributes(attributes)
-		.container
-			+b.section-title
-				h2 Предстоящие события
-			.row
-				.col-sm-6.col-lg-4
-					+eventCard('','btn','1','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--imgText")
-				.col-sm-6.col-lg-4
-					+eventCard('','btn','2','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')
-				.col-sm-6.col-lg-4
-					+eventCard('','btn','3','12 июня 2020','Возвращение в детство','Малый зал Московской консерватории')
-
-mixin sEvents-Past()
-	// start sEvents
-	+b.SECTION.sEvents--Past.bg-light.section#sEvents&attributes(attributes)
-		.container
-			+b.section-title
-				h2 Прошедшие события
-			.row
-				.col-sm-6.col-lg-4
-					+eventCard('','','4','6 июня 2020','Да здравствуют музы...!','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-				.col-sm-6.col-lg-4
-					+eventCard('','','5','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-				.col-sm-6.col-lg-4
-					+eventCard('','','6','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-				.col-sm-6.col-lg-4
-					+eventCard('','','7','6 июня 2020','Да здравствуют музы...!','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-				.col-sm-6.col-lg-4
-					+eventCard('','','8','30 июня 2020','Под дугой колокольчик поет','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-				.col-sm-6.col-lg-4
-					+eventCard('','','9','15 сентября 2020','Песни мира и войны','Малый зал Московской консерватории')(class="eventCard--blockedCard")
-			.text-center
-				+e.btn.btn.btn-outline-primary(href="#") Показать еще

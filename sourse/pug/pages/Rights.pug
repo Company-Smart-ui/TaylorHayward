@@ -2,10 +2,6 @@ extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug
-include ../blocks/sEvents/_sEvents.pug
-include ../blocks/sTarget/_sTarget.pug
-include ../blocks/sCards/_sCards.pug
-include ../blocks/sPartners/_sPartners.pug
 
 block variables
 	- let  mainPage= null
@@ -19,9 +15,9 @@ block pagecontent
 	+sContent()
 		+b.section-title.text-center
 			h2 Rights
-		.text-center
-			p Once purchaced, my music is free to use in web based or theater based video projects. Just credit me (Taylor Hayward) and #[a(href="mailto:th@engwd.com") email] me a link to your video so I can check it out. It's fun to see where my music is being used. :-)
-			p I'm glad you like my music. I hope your video project goes great!
+
+		p Once purchaced, my music is free to use in web based or theater based video projects. Just credit me (Taylor Hayward) and #[a(href="mailto:th@engwd.com") email] me a link to your video so I can check it out. It's fun to see where my music is being used. :-)
+		p I'm glad you like my music. I hope your video project goes great!
 	+footer()
 
 

@@ -1,13 +1,33 @@
 // start .sContent
 .sContent {
-	
+
 	p {
-		@include rfs(#{rem(20px)});
+		@include rfs(#{rem(20)});
+	}
+
+	.section-title {
+		display: flex;
+		align-items: center;
+
+		&__imgWrap + h1 {
+			margin-bottom: 0;
+		}
+
+		&__imgWrap {
+			max-width: 150px;
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right: rem(10);
+			@include  media-breakpoint-up(md) {
+				margin-right: rem(20);
+				max-width: 250px;
+			}
+		}
 	}
 
 	@include media-breakpoint-up(xs) {}
 	@include media-breakpoint-between(md, xl) { }
 	@include media-breakpoint-only(xl) {}
-	@include media-breakpoint-down(xs) {} 
+	@include media-breakpoint-down(xs) {}
 
 } // end.sContent

@@ -10,37 +10,38 @@ mixin headerBlock()
 								mixin slide(data)
 									.swiper-slide
 										+e.slide
-											//- +pic(`${data.img}`).picture-bg
 											picture.picture-bg
-												source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/${data.img}.webp` type="image/webp")
-												img.object-fit-js.img-bg.swiper-lazy(src="#" data-src=`img/@2x/${data.img}.png`, alt="")
+												source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/headerSlider-${data.img}.webp` type="image/webp")
+												img.object-fit-js.img-bg.swiper-lazy(src="#" data-src=`img/@2x/headerSlider-${data.img}.jpg`, alt= data.title)
 											.h1!= data.title
-											+e.btn.btn.btn-primary(href="#") Listen
+											+e.btn.btn.btn-primary(href="/music.html") Listen
 								+slide({
 									title: 'Early Recordings',
-									img: 'early_recordings'
+									img: '1'
 								})
 								+slide({
 									title: 'As The Covering Water of the Sea',
-									img: 'sitting_by_the_window'
+									img: '2'
 								})
 								+slide({
 									title: 'Ocean of Night',
-									img: 'covering_waters_of_the_sea'
+									img: '3'
 								})
 								+slide({
 									title: 'Forest Voyage',
-									img: 'sitting-by-the-window-cover'
+									img: '4'
 								})
 						+e.nav
-							.headerSlider-prev
-								img(src="img/chevron-left.svg", alt="")
+							button.headerSlider-prev(type="button")
+								img(src="img/chevron-left.svg", alt="previous slide")
 							.headerSlider-pugin
-							.headerSlider-next
-								img(src="img/chevron-right.svg", alt="")
+							button.headerSlider-next(type="button")
+								img(src="img/chevron-right.svg", alt="next slide")
 
 				+e.col.col-lg-2.col-xl-3.col-xxxl-4
 					+e.contentWrapper
 						h1 Taylor Hayward
+						+soc()
+					
 
 	// end headerBlock

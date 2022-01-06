@@ -1,17 +1,5 @@
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var JSCCommon = {
 	btnToggleMenuMobile: [].slice.call(document.querySelectorAll(".toggle-menu-mobile--js")),
 	menuMobile: document.querySelector(".menu-mobile--js"),
@@ -129,12 +117,7 @@ var JSCCommon = {
 					tabs.Content[index].classList.add('active');
 				}
 			});
-		}); // $('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
-		// 	$(this)
-		// 		.addClass('active').siblings().removeClass('active')
-		// 		.closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active')
-		// 		.eq($(this).index()).fadeIn().addClass('active');
-		// });
+		});
 	},
 	heightwindow: function heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -169,8 +152,6 @@ var JSCCommon = {
 var $ = jQuery;
 
 function eventHandler() {
-	var _defaultSl;
-
 	JSCCommon.modalCall();
 	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
@@ -200,31 +181,10 @@ function eventHandler() {
 		passive: true
 	});
 	whenResize();
-	var defaultSl = (_defaultSl = {
-		spaceBetween: 0,
-		lazy: {
-			loadPrevNext: true
-		},
-		watchOverflow: true
-	}, _defineProperty(_defaultSl, "spaceBetween", 0), _defineProperty(_defaultSl, "loop", true), _defineProperty(_defaultSl, "navigation", {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev'
-	}), _defineProperty(_defaultSl, "pagination", {
-		el: ' .swiper-pagination',
-		type: 'bullets',
-		clickable: true
-	}), _defaultSl);
-	var swiper4 = new Swiper('.color-slider', _objectSpread(_objectSpread({}, defaultSl), {}, {
-		slidesPerView: 'auto',
-		freeMode: true,
-		loopFillGroupWithBlank: true,
-		touchRatio: 0.2,
-		slideToClickedSlide: true,
-		freeModeMomentum: true
-	}));
 	var headerSlider = new Swiper('.headerSlider-js', {
 		slidesPerView: 1,
 		loop: true,
+		autoHeight: true,
 		spaceBetween: 200,
 		//nav
 		navigation: {
@@ -274,154 +234,7 @@ function eventHandler() {
 			loadPrevNext: true //loadPrevNextAmount: 2,
 
 		}
-	});
-	var partnerSlier = new Swiper('.partnerSlier-js', {
-		slidesPerView: 3,
-		loop: true,
-		spaceBetween: 5,
-		//nav
-		navigation: {
-			nextEl: '.partnerSlier-next',
-			prevEl: '.partnerSlier-prev'
-		},
-		breakpoints: {
-			576: {
-				slidesPerView: 4,
-				spaceBetween: 10
-			},
-			992: {
-				slidesPerView: 5,
-				spaceBetween: 20
-			},
-			1200: {
-				slidesPerView: 6,
-				spaceBetween: 42
-			}
-		},
-		//lazy
-		lazy: {
-			loadPrevNext: true //loadPrevNextAmount: 2,
-
-		}
 	}); // modal window
-	//articals sliders
-
-	$(".sArticals__slider").each(function () {
-		console.log(this);
-		console.log(this.querySelector('.arcticals-slider-js'));
-		console.log(this.querySelector('.artical-slide-next'));
-		console.log(this.querySelector('.artical-slide-prev'));
-		console.log('//');
-		var articalsSlider = new Swiper($(this).find(".arcticals-slider-js"), {
-			slidesPerView: 'auto',
-			spaceBetween: 25,
-			//nav
-			navigation: {
-				nextEl: $(this).find('.artical-slide-next'),
-				prevEl: $(this).find('.artical-slide-prev')
-			},
-			//lazy
-			lazy: {
-				loadPrevNext: true,
-				loadPrevNextAmount: 8
-			} //
-
-		});
-	}); //09
-	//timer
-
-	function tikTak(parentQselector) {
-		//html elements
-		var parents = document.querySelectorAll(parentQselector);
-		if (parents.length === 0) return;
-
-		var _iterator = _createForOfIteratorHelper(parents),
-				_step;
-
-		try {
-			for (_iterator.s(); !(_step = _iterator.n()).done;) {
-				var parent = _step.value;
-				//let days = parent.querySelector('.days');
-				var hours = parent.querySelector('.hours');
-				var minutes = parent.querySelector('.minutes');
-				var seconds = parent.querySelector('.seconds'); //date elements
-
-				var now = new Date(); // d === days.innerHtml + now.getDate... others the same way
-				//let d = getTime(days, now.getDate());
-
-				var h = getTime(hours, now.getHours());
-				var m = getTime(minutes, now.getMinutes());
-				var s = getTime(seconds, now.getSeconds());
-				var targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m, s);
-				console.log(now.getDate()); //interval
-
-				tikTakReadOut(parent, targetDate, ThisReadOutID, hours, minutes, seconds);
-				var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, hours, minutes, seconds), 1000);
-			}
-		} catch (err) {
-			_iterator.e(err);
-		} finally {
-			_iterator.f();
-		}
-	}
-
-	tikTak('.timer-box-js'); //additional funcs to tikTak
-
-	function tikTakReadOut(parent, targetDate, ReadOutID, hours, minutes, seconds) {
-		var now = new Date();
-		var timeLeft = (targetDate - now) / 1000;
-
-		if (timeLeft < 1) {
-			window.clearInterval(ReadOutID); //to do something after timer ends
-
-			$(parent).fadeOut();
-		} //days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
-		//timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
-
-
-		hours.innerHTML = addZero(Math.floor(timeLeft / 60 / 60));
-		timeLeft = (timeLeft / 60 / 60 - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
-		minutes.innerHTML = addZero(Math.floor(timeLeft / 60));
-		timeLeft = (timeLeft / 60 - Math.floor(timeLeft / 60)) * 60;
-		seconds.innerHTML = addZero(Math.floor(timeLeft));
-	}
-
-	function getTime(htmlEl, currentTimeItem) {
-		var timeItem = Number(htmlEl.innerHTML);
-
-		if (timeItem) {
-			timeItem += currentTimeItem;
-		} else {
-			timeItem = currentTimeItem;
-		}
-
-		return timeItem;
-	} //04
-
-
-	$(".sAboutFond__parners-slider").each(function () {
-		var articalsSlider = new Swiper($(this).find(".partners-slider-js"), {
-			slidesPerView: 'auto',
-			breakpoints: {
-				768: {
-					spaceBetween: 32
-				},
-				320: {
-					spaceBetween: 16
-				}
-			},
-			//lazy
-			lazy: {
-				loadPrevNext: true,
-				loadPrevNextAmount: 8
-			},
-			//
-			freeMode: true,
-			freeModeMomentum: true,
-			// spaceBetween: 30,
-			watchOverflow: true
-		});
-	});
 
 	function addZero(num) {
 		num = Number(num);

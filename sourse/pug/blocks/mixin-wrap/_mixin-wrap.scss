@@ -8,17 +8,23 @@
 		margin: 0 rem(5px);
 		vertical-align: middle;
 		@include mt;
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		&:hover{
-		 	// box-shadow: 0 0 33px 0px rgba(255, 83, 0, 0.16);
 			opacity: .6 ;
 		}
 		
 	}
 	.icon{
-	font-size: rem(30);
+		font-size: rem(30);
+
+		&-spotify {
+			font-size: rem(25)
+		}
 	}
-	 
+	
 
 }
  

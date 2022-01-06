@@ -1,11 +1,6 @@
 extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
-include ../blocks/sContact/_sContact.pug
-include ../blocks/sEvents/_sEvents.pug
-include ../blocks/sTarget/_sTarget.pug
-include ../blocks/sCards/_sCards.pug
-include ../blocks/sPartners/_sPartners.pug
 
 block variables
 	- let  mainPage= null
@@ -18,11 +13,13 @@ block pagecontent
 		+top-nav()
 	+sContent()
 		+b.section-title.text-center
-			h2 Background
-		.text-center
-			p The A&nbsp;Home For Sound album was created in&nbsp;a&nbsp;Brookline, Massachusetts recording studio over the period of&nbsp;two months in&nbsp;the summer of&nbsp;2011.
-			p Oceans at&nbsp;Rest is&nbsp;more of&nbsp;a&nbsp;mantra song where one could easily listen to&nbsp;it&nbsp;in&nbsp;the background and be&nbsp;calmed by&nbsp;its simplicity. The other songs are more emotional or&nbsp;melodic in&nbsp;form and will be&nbsp;more likely to&nbsp;draw the listener&rsquo;s attention.
-			p My&nbsp;background is&nbsp;in&nbsp;piano as&nbsp;a&nbsp;soloist and I&rsquo;ve been creating unique pieces for the instrument for many years. My&nbsp;style has moved from simple tunes to&nbsp;more complicated ones, and most recently ones that have really opened up&nbsp;emotionally. If&nbsp;you check out my&nbsp;previous music, which you can find on&nbsp;the Recordings page, you&rsquo;ll see the obvious change in&nbsp;time. I&nbsp;hope to&nbsp;continue making great music for years to&nbsp;come. I&nbsp;still have a&nbsp;lot of&nbsp;formal rules to&nbsp;figure out to&nbsp;progress my&nbsp;music in&nbsp;different directions, which&nbsp;I intend to&nbsp;do, but in&nbsp;the end it&rsquo;s the heart you put into the music that gets conveyed to&nbsp;the listener and I&rsquo;ve always tried to&nbsp;maintain that, and will continue to&nbsp;do&nbsp;so.
+			+e.imgWrap
+				+pic('photo-2.jpg')
+			h1 About
+
+		p The A&nbsp;Home For Sound album was created in&nbsp;a&nbsp;Brookline, Massachusetts recording studio over the period of&nbsp;two months in&nbsp;the summer of&nbsp;2011.
+		p Oceans at&nbsp;Rest is&nbsp;more of&nbsp;a&nbsp;mantra song where one could easily listen to&nbsp;it&nbsp;in&nbsp;the background and be&nbsp;calmed by&nbsp;its simplicity. The other songs are more emotional or&nbsp;melodic in&nbsp;form and will be&nbsp;more likely to&nbsp;draw the listener&rsquo;s attention.
+		p My&nbsp;background is&nbsp;in&nbsp;piano as&nbsp;a&nbsp;soloist and I&rsquo;ve been creating unique pieces for the instrument for many years. My&nbsp;style has moved from simple tunes to&nbsp;more complicated ones, and most recently ones that have really opened up&nbsp;emotionally. If&nbsp;you check out my&nbsp;previous music, which you can find on&nbsp;the Recordings page, you&rsquo;ll see the obvious change in&nbsp;time. I&nbsp;hope to&nbsp;continue making great music for years to&nbsp;come. I&nbsp;still have a&nbsp;lot of&nbsp;formal rules to&nbsp;figure out to&nbsp;progress my&nbsp;music in&nbsp;different directions, which&nbsp;I intend to&nbsp;do, but in&nbsp;the end it&rsquo;s the heart you put into the music that gets conveyed to&nbsp;the listener and I&rsquo;ve always tried to&nbsp;maintain that, and will continue to&nbsp;do&nbsp;so.
 	+footer()
 
 

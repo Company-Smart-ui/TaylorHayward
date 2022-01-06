@@ -111,14 +111,6 @@ const JSCCommon = {
 				} 
 			})
 		})
-		// $('.' + tab + '__caption').on('click', '.' + tab + '__btn:not(.active)', function (e) {
-		// 	$(this)
-		// 		.addClass('active').siblings().removeClass('active')
-		// 		.closest('.' + tab).find('.' + tab + '__content').hide().removeClass('active')
-		// 		.eq($(this).index()).fadeIn().addClass('active');
-
-		// });
-
 	},
 
  
@@ -190,39 +182,10 @@ function eventHandler() {
 
 	whenResize();
 
-
-	let defaultSl = {
-		spaceBetween: 0,
-		lazy: {
-			loadPrevNext: true,
-		},
-		watchOverflow: true,
-		spaceBetween: 0,
-		loop: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		pagination: {
-			el: ' .swiper-pagination',
-			type: 'bullets',
-			clickable: true,
-		},
-	}
-
-	const swiper4 = new Swiper('.color-slider', {
-		...defaultSl,
-		slidesPerView: 'auto',
-		freeMode: true,
-		loopFillGroupWithBlank: true,
-		touchRatio: 0.2,
-		slideToClickedSlide: true,
-		freeModeMomentum: true,
-	});
-
 	let headerSlider = new Swiper('.headerSlider-js', {
 		slidesPerView: 1,
 		loop: true,
+		autoHeight: true,
 		spaceBetween: 200,
 
 		//nav
@@ -280,159 +243,7 @@ function eventHandler() {
 		},
 	});
 
-	let partnerSlier = new Swiper('.partnerSlier-js', {
-		slidesPerView: 3,
-		loop: true,
-		spaceBetween: 5,
-		//nav
-		navigation: {
-			nextEl: '.partnerSlier-next',
-			prevEl: '.partnerSlier-prev',
-		},
-
-		breakpoints: { 
-			576: { 
-				slidesPerView: 4,
-				spaceBetween: 10,
-			},
-			
-			992: { 
-				slidesPerView: 5,
-				spaceBetween: 20
-			},
-
-			1200: {
-				slidesPerView: 6,
-				spaceBetween: 42,
-			}
-		},
-		//lazy
-		lazy: {
-			loadPrevNext: true,
-			//loadPrevNextAmount: 2,
-		},
-	});
 	// modal window
-
-	//articals sliders
-	$(".sArticals__slider").each(function () {
-		console.log(this);
-		console.log(this.querySelector('.arcticals-slider-js'));
-		console.log(this.querySelector('.artical-slide-next'));
-		console.log(this.querySelector('.artical-slide-prev'));
-		console.log('//');
-		let articalsSlider = new Swiper($(this).find(".arcticals-slider-js"), {
-			slidesPerView: 'auto',
-			spaceBetween: 25,
-
-			//nav
-			navigation: {
-				nextEl: $(this).find('.artical-slide-next'),
-				prevEl: $(this).find('.artical-slide-prev'),
-			},
-			//lazy
-			lazy: {
-				loadPrevNext: true,
-				loadPrevNextAmount: 8,
-			},
-			//
-
-		});
-	});
-
-	//09
-	//timer
-	function tikTak(parentQselector) {
-		//html elements
-		let parents = document.querySelectorAll(parentQselector);
-		if (parents.length === 0) return
-		for (let parent of parents){
-
-			//let days = parent.querySelector('.days');
-			let hours = parent.querySelector('.hours');
-			let minutes = parent.querySelector('.minutes');
-			let seconds = parent.querySelector('.seconds');
-
-			//date elements
-			let now = new Date();
-
-			// d === days.innerHtml + now.getDate... others the same way
-			//let d = getTime(days, now.getDate());
-			let h = getTime(hours, now.getHours());
-			let m = getTime(minutes, now.getMinutes());
-			let s = getTime(seconds, now.getSeconds());
-
-			let targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m, s);
-			console.log(now.getDate());
-
-			//interval
-			tikTakReadOut(parent, targetDate, ThisReadOutID, hours, minutes, seconds);
-			let ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, hours, minutes, seconds), 1000);
-		}
-	}
-	tikTak('.timer-box-js');
-	//additional funcs to tikTak
-
-	function tikTakReadOut(parent, targetDate, ReadOutID, hours, minutes, seconds) {
-		let now = new Date();
-		let timeLeft = (targetDate - now) / 1000;
-
-		if (timeLeft < 1) {
-			window.clearInterval(ReadOutID);
-			//to do something after timer ends
-			$(parent).fadeOut();
-		}
-
-		//days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
-		//timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
-
-		hours.innerHTML = addZero(Math.floor(timeLeft / 60 / 60));
-		timeLeft = ((timeLeft / 60 / 60) - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
-
-		minutes.innerHTML = addZero(Math.floor((timeLeft / 60)));
-		timeLeft = ((timeLeft / 60) - Math.floor((timeLeft / 60))) * 60;
-
-		seconds.innerHTML = addZero(Math.floor(timeLeft));
-	}
-
-	function getTime(htmlEl, currentTimeItem) {
-		let timeItem = Number(htmlEl.innerHTML);
-		if (timeItem) {
-			timeItem += currentTimeItem;
-		}
-		else {
-			timeItem = currentTimeItem;
-		}
-		return timeItem
-	}
-
-	//04
-	$(".sAboutFond__parners-slider").each(function () {
-		let articalsSlider = new Swiper($(this).find(".partners-slider-js"), {
-			slidesPerView: 'auto',
-			breakpoints: {
-				768: {
-					spaceBetween: 32,
-				},
-				320 : {
-					spaceBetween: 16,
-				},
-			},
-
-			//lazy
-			lazy: {
-				loadPrevNext: true,
-				loadPrevNextAmount: 8,
-			},
-
-			//
-			freeMode: true,
-			freeModeMomentum: true,
-			// spaceBetween: 30,
-			watchOverflow: true,
-
-		});
-	});
 
 	function addZero(num) {
 		num = Number(num);

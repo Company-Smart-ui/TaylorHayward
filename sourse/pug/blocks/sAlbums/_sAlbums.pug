@@ -3,30 +3,8 @@ mixin sAlbums()
 	+b.SECTION.sAlbums.section#sAlbums&attributes(attributes)
 		.container
 			+b.section-title.text-center
-				h2 Albums
-				
-			mixin album(data)
-				+e.album
-					.row
-						.col-md-4
-							+e.imgWrap
-								+pic(`${data.img}`)
-						.col
-							+e.videoWrap
-								if data.videos
-									each video in data.videos
-										video
-											source(src=`video/${video.link}` type="video/mp4")
-			+album({
-				img: 'covering_waters_of_the_sea.png',
-				videos: [
-					{
-						link: 'song1.mp4'
-					},
-					{
-						link: 'song1.mp4'
-					},
-				]
-			})
+				h2 Music
+			+e.widget
+				<iframe src="https://open.spotify.com/embed/artist/4U5MAmJil1tym2GO72tSh7?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 	// end sAlbums
