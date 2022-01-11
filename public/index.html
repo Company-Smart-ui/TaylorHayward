@@ -21,7 +21,7 @@
 		<link rel="stylesheet" href="libs/swiper/css/swiper.min.css"/>
 		<link rel="stylesheet" href="css/main.min.css"/>
 	</head>
-	<body class="page-main">
+	<body class="mainPage">
 		<div class="main-wrapper">
 			<div class="menu-mobile menu-mobile--js d-lg-none">
 				<button class="toggle-menu-mobile toggle-menu-mobile--js" type="button"><span></span>
@@ -53,7 +53,7 @@
 						<div class="row">
 							<div class="col-lg-auto col"><a class="top-nav__logo" href="/"><img src="img/@2x/logo.png" alt=""/></a>
 							</div>
-							<div class="top-nav__menu-wrap col-auto d-none d-lg-block">
+							<div class="top-nav__menu-wrap col-auto d-none d-lg-flex">
 								<ul class="nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 									<li class="nav__item" itemprop="item"><a class="nav__link" href="/" itemprop="url">Home</a>
 									</li>
@@ -87,42 +87,34 @@
 									<div class="swiper-wrapper">
 												<div class="swiper-slide">
 													<div class="headerSlider__slide">
-														<picture class="picture-bg">
-															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-1.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-1.jpg" alt="Early Recordings"/>
-														</picture>
+														<picture class="picture-bg"><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-1.jpg" alt="Early Recordings"/></picture>
 														<h2>Early Recordings</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
 													<div class="headerSlider__slide">
-														<picture class="picture-bg">
-															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-2.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-2.jpg" alt="As The Covering Water of the Sea"/>
-														</picture>
+														<picture class="picture-bg"><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-2.jpg" alt="As The Covering Water of the Sea"/></picture>
 														<h2>As The Covering Water of the Sea</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
 													<div class="headerSlider__slide">
-														<picture class="picture-bg">
-															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-3.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-3.jpg" alt="Ocean of Night"/>
-														</picture>
+														<picture class="picture-bg"><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-3.jpg" alt="Ocean of Night"/></picture>
 														<h2>Ocean of Night</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
 													<div class="headerSlider__slide">
-														<picture class="picture-bg">
-															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-4.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-4.jpg" alt="Forest Voyage"/>
-														</picture>
+														<picture class="picture-bg"><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-4.jpg" alt="Forest Voyage"/></picture>
 														<h2>Forest Voyage</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 									</div>
 								</div>
 								<div class="headerSlider__nav">
-									<button class="headerSlider-prev" type="button"><img src="img/chevron-left.svg" alt="previous slide"/></button>
+									<button class="headerSlider-prev" type="button"><img src="img/chevron-left.svg" alt="previous slide" loading="lazy"/></button>
 									<div class="headerSlider-pugin"></div>
-									<button class="headerSlider-next" type="button"><img src="img/chevron-right.svg" alt="next slide"/></button>
+									<button class="headerSlider-next" type="button"><img src="img/chevron-right.svg" alt="next slide" loading="lazy"/></button>
 								</div>
 							</div>
 						</div>
@@ -218,18 +210,18 @@
 						</div>
 						<div class="col-auto">
 							<div class="sEvents__controls">
-								<button class="eventSlider-prev" type="button"><img class="lazy" src="#" data-src="img/chevron-left-brown.svg" alt=""/></button>
-								<button class="eventSlider-next" type="button"><img class="lazy" src="#" data-src="img/chevron-right-brown.svg" alt=""/></button>
+								<button class="eventSlider-prev" type="button"><img src="img/chevron-left-brown.svg" loading="lazy" alt="slider nex"/></button>
+								<button class="eventSlider-next" type="button"><img src="img/chevron-right-brown.svg" loading="lazy" alt="slider prev"/></button>
 							</div>
 						</div>
 					</div>
 					<div class="eventSlider">
 						<div class="swiper-container eventSlider-js">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/7oJyCNSFoqNJt5L2A9pkBX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/1ugD376bCCHgoOyIEHRxL9?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
-								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/3uZKswAssh5KJB64RwyMwp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/7oJyCNSFoqNJt5L2A9pkBX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/1ugD376bCCHgoOyIEHRxL9?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+								<div class="swiper-slide"><iframe src="https://open.spotify.com/embed/album/3uZKswAssh5KJB64RwyMwp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
 							</div>
 						</div>
 					</div>
@@ -253,8 +245,6 @@
 				</div>
 			</footer>
 		</div>
-		<script src="js/lazy.js"></script>
-		<script src="libs/jquery/jquery.min.js"></script>
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<script src="libs//parallax-js/parallax.min.js"></script>
 		<script src="js/common.js"></script>

@@ -11,7 +11,6 @@ mixin headerBlock()
 									.swiper-slide
 										+e.slide
 											picture.picture-bg
-												source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/headerSlider-${data.img}.webp` type="image/webp")
 												img.object-fit-js.img-bg.swiper-lazy(src="#" data-src=`img/@2x/headerSlider-${data.img}.jpg`, alt= data.title)
 											h2!= data.title
 											+e.btn.btn.btn-primary(href="/music.html") Listen
@@ -33,10 +32,10 @@ mixin headerBlock()
 								})
 						+e.nav
 							button.headerSlider-prev(type="button")
-								img(src="img/chevron-left.svg", alt="previous slide")
+								img(src="img/chevron-left.svg", alt="previous slide" loading="lazy")
 							.headerSlider-pugin
 							button.headerSlider-next(type="button")
-								img(src="img/chevron-right.svg", alt="next slide")
+								img(src="img/chevron-right.svg", alt="next slide" loading="lazy")
 
 				+e.col.col-lg-2.col-xl-3.col-xxxl-4
 					+e.contentWrapper

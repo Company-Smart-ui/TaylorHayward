@@ -53,7 +53,7 @@
 						<div class="row">
 							<div class="col-lg-auto col"><a class="top-nav__logo" href="/"><img src="img/@2x/logo.png" alt=""/></a>
 							</div>
-							<div class="top-nav__menu-wrap col-auto d-none d-lg-block">
+							<div class="top-nav__menu-wrap col-auto d-none d-lg-flex">
 								<ul class="nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 									<li class="nav__item" itemprop="item"><a class="nav__link" href="/" itemprop="url">Home</a>
 									</li>
@@ -127,14 +127,14 @@
 					</div>
 				</div>
 				<div class="container">
-					<div class="section-title text-center">
+					<div class="section-title">
 						<div class="section-title__imgWrap">
 							<!-- picture-->
-							<picture class="lazy"> 
-								<source srcset="#" data-srcset="img/@2x/webp/photo-2.webp" type="image/webp" media="(min-width:576px)"/>
-								<source srcset="#" data-srcset="img/@1x/webp/photo-2.webp" type="image/webp"/>
-								<source srcset="#" data-srcset="img/@2x/photo-2.jpg" type="image/jpg" media="(min-width:576px)"/>
-								<source srcset="#" data-srcset="img/@1x/photo-2.jpg" type="image/jpg"/><img src="#" data-src="img/@2x/photo-2.jpg" alt=""/>
+							<picture> 
+								<source type="image/webp" srcset="img/@2x/webp/photo-2.webp" media="(min-width:576px)"/>
+								<source type="image/webp" srcset="img/@1x/webp/photo-2.webp"/>
+								<source type="image/jpg" srcset="img/@2x/photo-2.jpg" media="(min-width:576px)"/>
+								<source type="image/jpg" srcset="img/@1x/photo-2.jpg"/><img src="img/@2x/photo-2.jpg" alt="" loading="lazy"/>
 							</picture>
 							<!-- /picture-->
 						</div>
@@ -163,8 +163,6 @@
 				</div>
 			</footer>
 		</div>
-		<script src="js/lazy.js"></script>
-		<script src="libs/jquery/jquery.min.js"></script>
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<script src="libs//parallax-js/parallax.min.js"></script>
 		<script src="js/common.js"></script>

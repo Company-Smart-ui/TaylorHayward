@@ -107,8 +107,12 @@
 		}
 		&--3 {
 			top: rem(20px) !important;
-			right: rem(40px) !important;
+			right: rem(40px);
 			left: auto !important;
+
+			@include media-breakpoint-up(xxxl) {
+				right: 30%;
+			}
 		}
 		&--4 {
 			top: auto !important;

@@ -47,23 +47,37 @@ const JSCCommon = {
 
 	//tabs
 	tabscostume(tab) {
-		let tabs = {
-			Btn: [].slice.call(document.querySelectorAll(`.${tab}__btn`)),
-			BtnParent: [].slice.call(document.querySelectorAll(`.${tab}__caption`)),
-			Content: [].slice.call(document.querySelectorAll(`.${tab}__content`)),
-		}
-		tabs.Btn.forEach((element, index) => {
-			element.addEventListener('click', () => {
-				if (!element.classList.contains('active')) {
-					let siblings = element.parentNode.querySelector(`.${tab}__btn.active`);
-					let siblingsContent = tabs.Content[index].parentNode.querySelector(`.${tab}__content.active`);
-					siblings.classList.remove('active');
-					siblingsContent.classList.remove('active')
-					element.classList.add('active');
-					tabs.Content[index].classList.add('active');
-				} 
-			})
-		})
+		const tabs = document.querySelectorAll(tab);
+		tabs.forEach(function (element) {
+			let tabs = element;
+			const tabsCaption = tabs.querySelector(".tabs__caption");
+			const tabsBtn = tabsCaption.querySelectorAll(".tabs__btn");
+			const tabsWrap = tabs.querySelector(".tabs__wrap");
+			const tabsContent = tabsWrap.querySelectorAll(".tabs__content");
+			const random = Math.trunc(Math.random() * 1000);
+			tabsBtn.forEach(function (el, index) {
+				const data = "tab-content-".concat(random, "-").concat(index);
+				el.dataset.tabBtn = data;
+				const content = tabsContent[index];
+				content.dataset.tabContent = data;
+				if (!content.dataset.tabContent == data) return;
+				const active = content.classList.contains('active') ? 'active' : '';
+				content.insertAdjacentHTML("beforebegin", "<button type='button' class=\"tabs__btn tabs__btn_accardion ".concat(active, "\" data-tab-btn=\"").concat(data, "\">").concat(el.innerHTML, "</button>"));
+			});
+			tabs.addEventListener('click', function (element) {
+				const btn = element.target.closest("[data-tab-btn]:not(.active)");
+				if (!btn) return;
+				const data = btn.dataset.tabBtn;
+				const tabsAllBtn = this.querySelectorAll("[data-tab-btn");
+				const content = this.querySelectorAll("[data-tab-content]");
+				tabsAllBtn.forEach(function (element) {
+					element.dataset.tabBtn == data ? element.classList.add('active') : element.classList.remove('active');
+				});
+				content.forEach(function (element) {
+					element.dataset.tabContent == data ? (element.classList.add('active'), element.previousSibling.classList.add('active')) : element.classList.remove('active');
+				});
+			});
+		});
 	},
  
 	heightwindow() {
@@ -79,45 +93,35 @@ const JSCCommon = {
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}, { passive: true });
 	},
-	animateScroll() {
-		$(" .top-nav li a, .scroll-link").on('click', function () {
-			const elementClick = $(this).attr("href");
-			const destination = $(elementClick).offset().top;
 
-			$('html, body').animate({ scrollTop: destination }, 1100);
-
-			return false;
-		});
-	},
 	getCurrentYear(el) {
 		let now = new Date();
 		let currentYear = document.querySelector(el);
 		if (currentYear) currentYear.innerText = now.getFullYear();
 	},
 };
-const $ = jQuery;
 
 function eventHandler() {
-	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
 	JSCCommon.heightwindow();
-	JSCCommon.animateScroll();
 	JSCCommon.getCurrentYear('.currentYear');
 
-	function whenResize() {
-		const topH = document.querySelector('header').scrollHeight;
-		let stickyElement = document.querySelector('.top-nav')
-		window.onscroll = () => {
-			if ($(window).scrollTop() > topH) {
-
-				stickyElement.classList.add('fixed');
-			} else {
-				stickyElement.classList.remove('fixed');
-			}
-		};
-
+	function setFixedNav() {
+		let topNav = document.querySelector('.top-nav  ');
+		if (!topNav) return;
+		window.scrollY > 0
+			? topNav.classList.add('fixed')
+			: topNav.classList.remove('fixed');
 	}
 
+	function whenResize() {
+		setFixedNav();
+	}
+
+	window.addEventListener('scroll', () => {
+		setFixedNav();
+
+	}, { passive: true })
 	window.addEventListener('resize', () => {
 		whenResize();
 	}, { passive: true });
@@ -129,6 +133,7 @@ function eventHandler() {
 		loop: true,
 		autoHeight: true,
 		spaceBetween: 200,
+		lazy: true,
 
 		//nav
 		navigation: {
@@ -138,7 +143,7 @@ function eventHandler() {
 
 		//pugin
 		pagination: {
-			el: $(this).find('.headerSlider-pugin'),
+			el: '.headerSlider-pugin',
 			clickable: true,
 			type: 'fraction',
 		},

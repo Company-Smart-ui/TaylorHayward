@@ -98,3 +98,14 @@
 .link-mail {
 	@extend .h5;
 }
+
+body {
+	&:not(.mainPage) {
+		.top-nav {
+			&__menu-wrap {
+				flex-grow: 1;
+				justify-content: center;
+			}
+		}
+	}
+}

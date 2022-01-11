@@ -1,4 +1,4 @@
-// mixin для Фона
+// mixin for background
 @mixin bg($src, $media:xy, $path:xy) {
   @if $media==xy {
     @if $path==xy {
@@ -25,7 +25,7 @@
   }
 }
 
-// обсалютное центрирование
+// absolute centering
 
 @mixin a-cent($xy:xy) {
   @if $xy==xy {
@@ -110,7 +110,7 @@
   transition: all #{$s}s;
 }
 
-// михин многоточия
+// mihin ellipsis
 @mixin ellips {
   white-space: nowrap;
   overflow: hidden;
@@ -127,7 +127,7 @@
   }
 }
 
-// масштвбирование блока пропорционально
+// block scaling is proportional
 @mixin block($w: 1, $h: 1) {
   display: block;
   position: relative;
@@ -153,7 +153,7 @@
   height: $w;
 }
 
-// для анимации
+// for animation
 @mixin keyfr($name) {
 
   @keyframes #{$name} {
