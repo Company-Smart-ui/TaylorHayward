@@ -3,52 +3,6 @@ const JSCCommon = {
 	menuMobile: document.querySelector(".menu-mobile--js"),
 	menuMobileLink: [].slice.call(document.querySelectorAll(".menu-mobile--js ul li a")),
 
-	modalCall() {
-
-		$(".link-modal").fancybox({
-			arrows: false,
-			infobar: false,
-			touch: false,
-			type: 'inline',
-			autoFocus: false,
-			i18n: {
-				en: {
-					CLOSE: "CLOSE",
-					NEXT: "NEXT",
-					PREV: "PREV",
-				},
-			},
-		});
-		$(".modal-close-js").click(function () {
-			$.fancybox.close();
-		})
-		$.fancybox.defaults.backFocus = false;
-		const linkModal = document.querySelectorAll('.link-modal');
-		if (linkModal) {
-			linkModal.forEach(element => {
-				element.addEventListener('click', () => {
-					let modal = document.querySelector(element.getAttribute("href"));
-					const data = element.dataset;
-					
-					function setValue(val, elem) {
-						if (elem && val) {
-							const el = modal.querySelector(elem)
-							el.tagName == "INPUT"
-								? el.value = val
-								: el.innerHTML = val;
-							console.log(modal.querySelector(elem).tagName)
-						}
-					}
-					setValue(data.title, '.ttu');
-					setValue(data.text, '.after-headline');
-					setValue(data.btn, '.btn');
-					setValue(data.order, '.order'); 
-				})
-			})
-		 
-		}
-	},
-	// /modalCall
 	toggleMenu() {
 		if (this.btnToggleMenuMobile) {
 			this.btnToggleMenuMobile.forEach(element => {
@@ -70,8 +24,8 @@ const JSCCommon = {
 			this.menuMobile.classList.remove("active");
 			document.body.classList.remove("fixed");
 		}
-
 	},
+
 	mobileMenu() {
 		if (this.menuMobileLink) {
 			this.toggleMenu();
@@ -93,7 +47,6 @@ const JSCCommon = {
 
 	//tabs
 	tabscostume(tab) {
-
 		let tabs = {
 			Btn: [].slice.call(document.querySelectorAll(`.${tab}__btn`)),
 			BtnParent: [].slice.call(document.querySelectorAll(`.${tab}__caption`)),
@@ -112,7 +65,6 @@ const JSCCommon = {
 			})
 		})
 	},
-
  
 	heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -128,7 +80,7 @@ const JSCCommon = {
 		}, { passive: true });
 	},
 	animateScroll() {
-		$(" .top-nav li a, .scroll-link").click(function () {
+		$(" .top-nav li a, .scroll-link").on('click', function () {
 			const elementClick = $(this).attr("href");
 			const destination = $(elementClick).offset().top;
 
@@ -146,7 +98,6 @@ const JSCCommon = {
 const $ = jQuery;
 
 function eventHandler() {
-	JSCCommon.modalCall();
 	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
 	JSCCommon.heightwindow();
@@ -154,7 +105,6 @@ function eventHandler() {
 	JSCCommon.getCurrentYear('.currentYear');
 
 	function whenResize() {
-
 		const topH = document.querySelector('header').scrollHeight;
 		let stickyElement = document.querySelector('.top-nav')
 		window.onscroll = () => {
@@ -170,7 +120,6 @@ function eventHandler() {
 
 	window.addEventListener('resize', () => {
 		whenResize();
-
 	}, { passive: true });
 
 	whenResize();
@@ -196,16 +145,13 @@ function eventHandler() {
 		//lazy
 		lazy: {
 			loadPrevNext: true,
-			//loadPrevNextAmount: 2,
 		},
 	});
 
 	let eventSlider = new Swiper('.eventSlider-js', {
-		// slidesPerView: 1,
-		// watchOverflow: true,
 		freeMode: true,
 		loop: false,
-		// autoHeight: true,
+		autoHeight: true,
 		spaceBetween: 20,
 		//nav
 		navigation: {
@@ -232,15 +178,14 @@ function eventHandler() {
 		//lazy
 		lazy: {
 			loadPrevNext: true,
-			//loadPrevNextAmount: 2,
 		},
 	});
 
-	// modal window
-
-	let flyItems = document.querySelectorAll('.fly-items-js');
-	for(let item of flyItems){
-		var parallaxInstance = new Parallax(item);
+	if (window.innerWidth > 992) {
+		let flyItems = document.querySelectorAll('.fly-items-js');
+		for(let item of flyItems){
+			var parallaxInstance = new Parallax(item);
+		}
 	}
 };
 if (document.readyState !== 'loading') {

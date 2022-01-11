@@ -1,7 +1,7 @@
 mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
-		.container
+		.container-xl
 			.row
 				+e.slCol.col-lg-10.col-xl-9.col-xxxl-8
 					+b.headerSlider
@@ -13,7 +13,7 @@ mixin headerBlock()
 											picture.picture-bg
 												source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/headerSlider-${data.img}.webp` type="image/webp")
 												img.object-fit-js.img-bg.swiper-lazy(src="#" data-src=`img/@2x/headerSlider-${data.img}.jpg`, alt= data.title)
-											.h1!= data.title
+											h2!= data.title
 											+e.btn.btn.btn-primary(href="/music.html") Listen
 								+slide({
 									title: 'Early Recordings',
@@ -40,12 +40,12 @@ mixin headerBlock()
 
 				+e.col.col-lg-2.col-xl-3.col-xxxl-4
 					+e.contentWrapper
-						+e.photo 
+						+e.txtWrap
+							h1 Taylor Hayward
+							+soc()
+						+e.photo
 							picture
 								source(srcset=`img/@2x/webp/photo-2-bg.webp` type="image/webp")
 								img(src=`img/@2x/photo-2-bg.png`, alt="Taylor Hayward")
-						h1 Taylor Hayward
-						+soc()
-					
 
 	// end headerBlock

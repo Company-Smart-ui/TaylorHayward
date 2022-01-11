@@ -19,7 +19,6 @@
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#3361d8">
 		<link rel="stylesheet" href="libs/swiper/css/swiper.min.css"/>
-		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
 		<link rel="stylesheet" href="css/main.min.css"/>
 	</head>
 	<body class="page-main">
@@ -80,7 +79,7 @@
 			<!-- end header-->
 			<!-- start headerBlock-->
 			<div class="headerBlock section" id="headerBlock">
-				<div class="container">
+				<div class="container-xl">
 					<div class="row">
 						<div class="headerBlock__slCol col-lg-10 col-xl-9 col-xxxl-8">
 							<div class="headerSlider">
@@ -91,7 +90,7 @@
 														<picture class="picture-bg">
 															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-1.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-1.jpg" alt="Early Recordings"/>
 														</picture>
-														<div class="h1">Early Recordings</div><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
+														<h2>Early Recordings</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -99,7 +98,7 @@
 														<picture class="picture-bg">
 															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-2.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-2.jpg" alt="As The Covering Water of the Sea"/>
 														</picture>
-														<div class="h1">As The Covering Water of the Sea</div><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
+														<h2>As The Covering Water of the Sea</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -107,7 +106,7 @@
 														<picture class="picture-bg">
 															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-3.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-3.jpg" alt="Ocean of Night"/>
 														</picture>
-														<div class="h1">Ocean of Night</div><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
+														<h2>Ocean of Night</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 												<div class="swiper-slide">
@@ -115,7 +114,7 @@
 														<picture class="picture-bg">
 															<source class="swiper-lazy" srcset="#" data-srcset="img/@2x/webp/headerSlider-4.webp" type="image/webp"/><img class="object-fit-js img-bg swiper-lazy" src="#" data-src="img/@2x/headerSlider-4.jpg" alt="Forest Voyage"/>
 														</picture>
-														<div class="h1">Forest Voyage</div><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
+														<h2>Forest Voyage</h2><a class="headerSlider__btn btn btn-primary" href="/music.html">Listen</a>
 													</div>
 												</div>
 									</div>
@@ -129,19 +128,21 @@
 						</div>
 						<div class="headerBlock__col col-lg-2 col-xl-3 col-xxxl-4">
 							<div class="headerBlock__contentWrapper">
-								<div class="headerBlock__photo"> 
+								<div class="headerBlock__txtWrap">
+									<h1>Taylor Hayward</h1>
+									<div class="soc"><a class="soc__item" href="https://facebook.com/244038162326995/" target="_blank">
+										<svg class="icon icon-fb ">
+											<use xlink:href="img/svg/sprite.svg#fb"></use>
+										</svg></a><a class="soc__item" href="https://open.spotify.com/artist/4U5MAmJil1tym2GO72tSh7?si=McCLhKqeRyC_ff4DrCxjxQ" target="_blank">
+										<svg class="icon icon-spotify ">
+											<use xlink:href="img/svg/sprite.svg#spotify"></use>
+										</svg></a>
+									</div>
+								</div>
+								<div class="headerBlock__photo">
 									<picture>
 										<source srcset="img/@2x/webp/photo-2-bg.webp" type="image/webp"/><img src="img/@2x/photo-2-bg.png" alt="Taylor Hayward"/>
 									</picture>
-								</div>
-								<h1>Taylor Hayward</h1>
-								<div class="soc"><a class="soc__item" href="https://facebook.com/244038162326995/" target="_blank">
-									<svg class="icon icon-fb ">
-										<use xlink:href="img/svg/sprite.svg#fb"></use>
-									</svg></a><a class="soc__item" href="https://open.spotify.com/artist/4U5MAmJil1tym2GO72tSh7?si=McCLhKqeRyC_ff4DrCxjxQ" target="_blank">
-									<svg class="icon icon-spotify ">
-										<use xlink:href="img/svg/sprite.svg#spotify"></use>
-									</svg></a>
 								</div>
 							</div>
 						</div>
@@ -252,38 +253,8 @@
 				</div>
 			</footer>
 		</div>
-		<!--  start modals-->
-		<div class="modal-win" id="modal-call" style="display: none">
-			<div class="form-wrap">
-				<form>
-					<input type="hidden" name="example-input-field"/>
-					<input class="order" type="hidden" name="order" value="Заявка  с сайта"/>
-					<input class="utm_source" type="hidden" name="utm_source"/>
-					<input class="utm_term" type="hidden" name="utm_term"/>
-					<input class="utm_medium" type="hidden" name="utm_medium"/>
-					<input class="utm_campaign" type="hidden" name="utm_campaign"/>
-					<div class="text-center">
-						<div class="form-wrap__title h3 ttu">Обратный звонок
-						</div>
-						<p class="after-headline">Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут</p>
-					</div>
-					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="text" placeholder="Ваше Имя" name="text" required="required"/> 
-					</div>
-					<!-- +e.input-wrap-->
-					<button class="form-wrap__btn btn" type="submit"> 
-					</button>
-					<div class="form-wrap__polite">
-						<label class="custom-input"><input class="custom-input__input" type="checkbox" name="checkbox" checked="checked"/><span class="custom-input__lab"></span><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
-						</label>
-					</div>
-				</form>
-			</div>
-		</div>
-		<!-- #modal-call-->
-		<!-- end modals-->
 		<script src="js/lazy.js"></script>
 		<script src="libs/jquery/jquery.min.js"></script>
-		<script src="libs/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<script src="libs//parallax-js/parallax.min.js"></script>
 		<script src="js/common.js"></script>

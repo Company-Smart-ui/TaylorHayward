@@ -10,50 +10,6 @@ var JSCCommon = {
 	btnToggleMenuMobile: [].slice.call(document.querySelectorAll(".toggle-menu-mobile--js")),
 	menuMobile: document.querySelector(".menu-mobile--js"),
 	menuMobileLink: [].slice.call(document.querySelectorAll(".menu-mobile--js ul li a")),
-	modalCall: function modalCall() {
-		$(".link-modal").fancybox({
-			arrows: false,
-			infobar: false,
-			touch: false,
-			type: 'inline',
-			autoFocus: false,
-			i18n: {
-				en: {
-					CLOSE: "CLOSE",
-					NEXT: "NEXT",
-					PREV: "PREV"
-				}
-			}
-		});
-		$(".modal-close-js").click(function () {
-			$.fancybox.close();
-		});
-		$.fancybox.defaults.backFocus = false;
-		var linkModal = document.querySelectorAll('.link-modal');
-
-		if (linkModal) {
-			linkModal.forEach(function (element) {
-				element.addEventListener('click', function () {
-					var modal = document.querySelector(element.getAttribute("href"));
-					var data = element.dataset;
-
-					function setValue(val, elem) {
-						if (elem && val) {
-							var el = modal.querySelector(elem);
-							el.tagName == "INPUT" ? el.value = val : el.innerHTML = val;
-							console.log(modal.querySelector(elem).tagName);
-						}
-					}
-
-					setValue(data.title, '.ttu');
-					setValue(data.text, '.after-headline');
-					setValue(data.btn, '.btn');
-					setValue(data.order, '.order');
-				});
-			});
-		}
-	},
-	// /modalCall
 	toggleMenu: function toggleMenu() {
 		var _this = this;
 
@@ -140,7 +96,7 @@ var JSCCommon = {
 		});
 	},
 	animateScroll: function animateScroll() {
-		$(" .top-nav li a, .scroll-link").click(function () {
+		$(" .top-nav li a, .scroll-link").on('click', function () {
 			var elementClick = $(this).attr("href");
 			var destination = $(elementClick).offset().top;
 			$('html, body').animate({
@@ -158,7 +114,6 @@ var JSCCommon = {
 var $ = jQuery;
 
 function eventHandler() {
-	JSCCommon.modalCall();
 	JSCCommon.tabscostume('tabs');
 	JSCCommon.mobileMenu();
 	JSCCommon.heightwindow();
@@ -202,16 +157,13 @@ function eventHandler() {
 		},
 		//lazy
 		lazy: {
-			loadPrevNext: true //loadPrevNextAmount: 2,
-
+			loadPrevNext: true
 		}
 	});
 	var eventSlider = new Swiper('.eventSlider-js', {
-		// slidesPerView: 1,
-		// watchOverflow: true,
 		freeMode: true,
 		loop: false,
-		// autoHeight: true,
+		autoHeight: true,
 		spaceBetween: 20,
 		//nav
 		navigation: {
@@ -234,25 +186,26 @@ function eventHandler() {
 		},
 		//lazy
 		lazy: {
-			loadPrevNext: true //loadPrevNextAmount: 2,
-
+			loadPrevNext: true
 		}
-	}); // modal window
+	});
 
-	var flyItems = document.querySelectorAll('.fly-items-js');
+	if (window.innerWidth > 992) {
+		var flyItems = document.querySelectorAll('.fly-items-js');
 
-	var _iterator = _createForOfIteratorHelper(flyItems),
-			_step;
+		var _iterator = _createForOfIteratorHelper(flyItems),
+				_step;
 
-	try {
-		for (_iterator.s(); !(_step = _iterator.n()).done;) {
-			var item = _step.value;
-			var parallaxInstance = new Parallax(item);
+		try {
+			for (_iterator.s(); !(_step = _iterator.n()).done;) {
+				var item = _step.value;
+				var parallaxInstance = new Parallax(item);
+			}
+		} catch (err) {
+			_iterator.e(err);
+		} finally {
+			_iterator.f();
 		}
-	} catch (err) {
-		_iterator.e(err);
-	} finally {
-		_iterator.f();
 	}
 }
 

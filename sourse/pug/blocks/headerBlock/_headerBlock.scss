@@ -52,14 +52,18 @@
 		width: 100%;
 		height: 100%;
 		position: relative;
-		overflow: hidden;
 		padding-left: 0;
 		padding-top: rem(30);
-		padding-bottom: rem(70);
-		@include media-breakpoint-up(md) {
-			padding-top: rem(70);
+		padding-bottom: rem(0);
+		@include media-breakpoint-between(sm, lg) {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
 		}
 		@include media-breakpoint-up(lg) {
+			overflow: hidden;
+			padding-bottom: rem(170);
 			padding-top: 0;
 			padding-left: rem(15);
 		}
@@ -71,8 +75,10 @@
 		}
 	}
 
-	.container-fluid {
-		padding-left: 0;
+	@include media-breakpoint-up(lg) {
+		.container-fluid {
+			padding-left: 0;
+		}
 	}
 
 	li {
@@ -88,7 +94,7 @@
 		}
 	}
 
-	h1 {
+	h1, h2, .h2, .h1 {
 		@extend .mono;
 		@include rfs(#{30px});
 		line-height: 1.4;
@@ -96,10 +102,28 @@
 	}
 
 	&__photo {
-		position: absolute;
-		bottom: -20px;
-		left: -10px;
-		margin-right: 100px;
+		@include media-breakpoint-down(md) {
+			max-width: rem(300);
+		}
+		@include media-breakpoint-down(lg) {
+			max-width: rem(400);
+			padding-top: rem(20);
+			margin-left: calc(-1 * var(--bs-gutter-x));
+		}
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			bottom: rem(-10px);
+			left: rem(-50px);
+			margin-right: rem(10px);
+		}
+		@include media-breakpoint-up(xl) {
+			margin-right: rem(50px);
+			bottom: rem(-20);
+		}
+		@include media-breakpoint-up(xxxl) {
+			left: rem(-10px);
+			margin-right: rem(100px);
+		}
 	}
 
 	@include media-breakpoint-up(xs) {}
@@ -195,10 +219,9 @@
 		}
 	}
 
-	.h1 {
+	h2, .h2 {
 		color: #fff;
 		margin-bottom: rem(69);
-		@extend .mono;
 		max-width: rem(750px);
 		position: relative;
 		z-index: 2;
