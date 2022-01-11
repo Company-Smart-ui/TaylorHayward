@@ -40,6 +40,10 @@ mixin headerBlock()
 
 				+e.col.col-lg-2.col-xl-3.col-xxxl-4
 					+e.contentWrapper
+						+e.photo 
+							picture
+								source(srcset=`img/@2x/webp/photo-2-bg.webp` type="image/webp")
+								img(src=`img/@2x/photo-2-bg.png`, alt="Taylor Hayward")
 						h1 Taylor Hayward
 						+soc()
 					

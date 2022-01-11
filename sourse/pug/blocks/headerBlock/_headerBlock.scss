@@ -71,7 +71,6 @@
 		}
 	}
 
-
 	.container-fluid {
 		padding-left: 0;
 	}
@@ -94,6 +93,13 @@
 		@include rfs(#{30px});
 		line-height: 1.4;
 		margin-bottom: rem(30);
+	}
+
+	&__photo {
+		position: absolute;
+		bottom: -20px;
+		left: -10px;
+		margin-right: 100px;
 	}
 
 	@include media-breakpoint-up(xs) {}

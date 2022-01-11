@@ -1,23 +1,29 @@
-mixin eventCard(sl,btn,i,date,title,text)
-	+b.eventCard&attributes(attributes)
-		a(href="#")
-			picture
-				if sl
-					source.swiper-lazy(srcset="#" data-srcset=`img/@2x/webp/event-${i}.webp` type="image/webp")
-					img.object-fit-js.swiper-lazy(src="#" data-src=`img/@2x/event-${i}.jpg`, alt="")
-				else
-					source.lazy(srcset="#" data-srcset=`img/@2x/webp/event-${i}.webp` type="image/webp")
-					img.object-fit-js.lazy(src="#" data-src=`img/@2x/event-${i}.jpg`, alt="")
-		+e.body
-			+e.date.h5(href="#")= date
-			+e.title.h5(href="#")= title
-			+e.place(href="#")= text
-			if btn
-				+e.btn.btn.btn-primary(href="#") Buy tickets
-
 mixin sEvents()
 	// start sEvents
 	+b.SECTION.sEvents.section#sEvents&attributes(attributes)
+		+b.flyItems.fly-items-js
+			+e.item--1(data-depth="0.1")
+				+icon('music-solid')
+			+e.item--2(data-depth="0.2")
+				+icon('music-solid')
+			+e.item--3(data-depth="0.3")
+				+icon('piano')
+			+e.item--4(data-depth="0.1")
+				+icon('piano')
+			+e.item--5(data-depth="0.4")
+				+icon('note-piano')
+			+e.item--6(data-depth="0.1")
+				+icon('note-piano')
+			+e.item--7(data-depth="0.5")
+				+icon('note-piano')
+			+e.item--8(data-depth="0.5")
+				+icon('music-solid')
+			+e.item--9(data-depth="0.1")
+				+icon('play')
+			+e.item--10(data-depth="0.5")
+				+icon('audio')
+			+e.item--11(data-depth="0.6")
+				+icon('audio')
 		.container
 			.row
 				.col

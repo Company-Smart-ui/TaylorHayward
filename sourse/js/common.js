@@ -153,13 +153,6 @@ function eventHandler() {
 	JSCCommon.animateScroll();
 	JSCCommon.getCurrentYear('.currentYear');
 
-	let screenName;
-	screenName = '10.jpg';
-	screenName
-		? $(".main-wrapper").after(`<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`)
-		: '';
-
-
 	function whenResize() {
 
 		const topH = document.querySelector('header').scrollHeight;
@@ -245,12 +238,9 @@ function eventHandler() {
 
 	// modal window
 
-	function addZero(num) {
-		num = Number(num);
-		if (num >= 0 && num <=9) {
-			num = "0" + num;
-		}
-		return num
+	let flyItems = document.querySelectorAll('.fly-items-js');
+	for(let item of flyItems){
+		var parallaxInstance = new Parallax(item);
 	}
 };
 if (document.readyState !== 'loading') {
