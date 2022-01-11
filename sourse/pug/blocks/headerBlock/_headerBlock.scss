@@ -75,6 +75,11 @@
 		}
 	}
 
+	&__txtWrap {
+		position: relative;
+		z-index: 2;
+	}
+
 	@include media-breakpoint-up(lg) {
 		.container-fluid {
 			padding-left: 0;
