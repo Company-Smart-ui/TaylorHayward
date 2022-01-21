@@ -61,12 +61,6 @@
 
 		li {
 			padding: rem(3);
-			cursor: pointer;
-			@include mt();
-
-			&:hover {
-				background: rgba($primary, 0.2);
-			}
 		}
 	}
 
