@@ -14,11 +14,11 @@ mixin mob-mnu()
 mixin top-nav() 
 	// start top-nav
 	+b.top-nav.block-with-lazy
-		.container
-			.row
+		.container-fluid
+			.row.align-items-center
 				.col-lg-auto.col
 					+e.logo(href="/")
-						img(src="img/@2x/logo.png", alt="")
+						img(src="img/@2x/logo.png", alt="Taylor Hayward Logo")
 				+e.menu-wrap.col-auto.d-none.d-lg-flex
 					+mnu()
 				+e.constants.col-auto.align-self-center.text-right.d-none.d-md-block
@@ -28,6 +28,5 @@ mixin top-nav()
 				.col-auto.align-self-center.d-lg-none
 					+b.BUTTON.toggle-menu-mobile--js.d-lg-none(type="button")
 						span
-
 					
 	// end top-nav

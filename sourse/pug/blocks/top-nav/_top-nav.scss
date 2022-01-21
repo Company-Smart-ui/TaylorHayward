@@ -13,14 +13,13 @@
 		}
 	}
 	&__logo{
-		@include media-breakpoint-up(xxl) {
-			margin-right: rem(75);
-		}
-
 		img{
 			max-width: rem(152);
 			@include media-breakpoint-up(sm) {
-				max-width: rem(185);
+				max-width: rem(250);
+			}
+			@include  media-breakpoint-up(xxl) {
+				max-width: calc(#{rem(200)} + 13vw);
 			}
 		 }
 	 }
@@ -43,7 +42,6 @@
 .btn-lang {
 	@extend .btn;
 	@extend .btn-outline-primary;
-
 	padding: 0;
 	font-family: $font-family-base;
 	border-radius: 50%;
@@ -58,11 +56,15 @@
 .nav {
 	list-style-type: none;
 	margin-bottom: 0;
-	max-width: rem(336);
+	max-width: rem(180);
 	@extend .mono;
 
 	@include media-breakpoint-up(lg) {
 		columns: 2;
+
+	}
+	@include  media-breakpoint-up(xxxl) {
+		max-width: rem(320);
 	}
 
 	&__item {
@@ -86,7 +88,7 @@
 }
 
 .link-tel {
-	@extend .h2;
+	@extend .h5;
 	@extend .mono;
 	@extend .text-body;
 	display: inline-block;

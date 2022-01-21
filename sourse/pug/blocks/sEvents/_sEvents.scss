@@ -58,17 +58,29 @@
 		}
 	}
 
-	@include media-breakpoint-up(sm) {}
-	@include media-breakpoint-between(md, xl) {}
-	@include media-breakpoint-only(xl) {}
-	@include media-breakpoint-down(sm) {}
+	.sAlbums {
+		&__album {
+			background: $primary-light;
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+	}
+	@include media-breakpoint-between(md, xl) {
+	}
+	@include media-breakpoint-only(xl) {
+	}
+	@include media-breakpoint-down(sm) {
+	}
 }// end.sEvents
 
 .eventSlider {
 	.swiper-container {
-		overflow: visible;
 		@include media-breakpoint-up(sm) {
 			max-width: rem(1553px);
+		}
+		@include media-breakpoint-down(sm) {
+			overflow: visible;
 		}
 		max-width: 80vw;
 		margin-left: 0;
@@ -96,15 +108,17 @@
 
 	&__item {
 		position: absolute;
-		width: rem(30px);
+
 		&--1 {
-			top: rem(10px) !important;
+			top: rem(0px) !important;
 			left: rem(40px) !important;
 		}
+
 		&--2 {
 			top: rem(25px) !important;
 			left: 50% !important;
 		}
+
 		&--3 {
 			top: rem(20px) !important;
 			right: rem(40px);
@@ -114,42 +128,50 @@
 				right: 30%;
 			}
 		}
+
 		&--4 {
 			top: auto !important;
 			bottom: rem(30px);
 			left: rem(70px) !important;
 		}
+
 		&--5 {
 			top: rem(50px) !important;
 			left: 40% !important;
-			
+
 			.icon {
 				font-size: rem(60);
 			}
 		}
+
 		&--6 {
 			top: auto !important;
 			left: auto !important;
 			right: rem(90px);
 			bottom: rem(20px);
 		}
+
 		&--7 {
 			top: auto !important;
 			bottom: rem(30px);
 			left: 40% !important;
 		}
+
 		&--8 {
-			top: 60%!important;
-			left: 2%!important;
+			top: 60% !important;
+			left: 2% !important;
 		}
+
 		&--9 {
 			top: 180px !important;
 			left: 34% !important;
 		}
+
 		&--10 {
 			top: -50px !important;
 			left: 35% !important;
 		}
+
 		&--11 {
 			left: auto !important;
 			right: 20%;

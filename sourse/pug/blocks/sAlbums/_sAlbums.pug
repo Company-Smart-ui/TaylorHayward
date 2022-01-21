@@ -1,14 +1,65 @@
 mixin sAlbums()
-	// start sAlbums
-	+b.SECTION.sAlbums.section#sAlbums&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 Music
-			<iframe src="https://open.spotify.com/embed/artist/4U5MAmJil1tym2GO72tSh7?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			<iframe src="https://open.spotify.com/embed/album/1ugD376bCCHgoOyIEHRxL9?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			<iframe src="https://open.spotify.com/embed/album/7oJyCNSFoqNJt5L2A9pkBX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			<iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			<iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-			<iframe src="https://open.spotify.com/embed/album/3uZKswAssh5KJB64RwyMwp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  // start sAlbums
+  .SECTION.sAlbums.section#sAlbums&attributes(attributes)
+    .container
+      +b.section-title
+        h2 Music
+      +player(1, 'sitting-by-the-window-cover.png')
+        p Download:
+          a(href='audio/album_alph.zip') zip
+      +player(2, 'ab67616d0000b273e86d51da8e2773c8e004401e.jpg')
+        p Download:
+          a(href='audio/album_brav.zip') zip
+      +player(3, 'sitting_by_the_window.png')
+        p Download:
+          a(href='album_char.zip') zip
+      +player(4, 'early_recordings.png')
+        p Download:
+          a(href='audio/all_hotel.zip') zip
 
-	// end sAlbums
+  // end sAlbums
+
+mixin item(title, img)
+  +e.item
+    h3= title
+    .row
+      .col-sm-3
+        +e.cover
+          img(src=`img/@2x/${img}` loading="lazy")
+      +e.col.col
+        block
+
+mixin player(i, img, sl)
+  +b.sAlbums
+    +e.player(data-player="")
+      +e.albumTitle
+      if sl
+        +e.album(id=`player${i}`)
+          +e.nowPlay
+            +e.SPAN.npTitle Lorem ipsum dolor.
+          +e.audiowrap
+            +e.audio
+              audio(id=`audio${i}` preload='' controls='' data-audio="")
+            +e.tracks
+              +e.BUTTON.btnPrev(type="button") ←
+              +e.BUTTON.btnNext(type="button") →
+          +e.plwrap
+            +e.UL.plList
+      else
+        .row
+          .col-sm-2
+            +e.imgWrap
+              img(loading="lazy" src=`img/@2x/${img}` alt= img)
+          .col
+            +e.album(id=`player${i}`)
+              +e.nowPlay
+                +e.SPAN.npTitle Lorem ipsum dolor.
+              +e.audiowrap
+                +e.audio
+                  audio(id=`audio${i}` preload='' controls='' data-audio="")
+                +e.tracks
+                  +e.BUTTON.btnPrev(type="button") ←
+                  +e.BUTTON.btnNext(type="button") →
+              +e.plwrap
+                +e.UL.plList
+            block

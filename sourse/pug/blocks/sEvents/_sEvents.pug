@@ -20,7 +20,7 @@ mixin sEvents()
 				+icon('music-solid')
 			+e.item--9(data-depth="0.1")
 				+icon('play')
-			+e.item--10(data-depth="0.5")
+			+e.item--10(data-depth="0.4")
 				+icon('audio')
 			+e.item--11(data-depth="0.6")
 				+icon('audio')
@@ -29,7 +29,7 @@ mixin sEvents()
 				.col
 					+b.section-title
 						h2 Music
-						+e.showAll.h5(href="/music.html") Listen to everything
+						// +e.showAll.h5(href="/music.html") Listen to everything
 				.col-auto
 					+e.controls
 						button.eventSlider-prev(type="button")
@@ -40,12 +40,13 @@ mixin sEvents()
 				.swiper-container.eventSlider-js
 					.swiper-wrapper
 						.swiper-slide
-							<iframe src="https://open.spotify.com/embed/album/7oJyCNSFoqNJt5L2A9pkBX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+							+player(4, 'early_recordings.png','sl')
 						.swiper-slide
-							<iframe src="https://open.spotify.com/embed/album/1ugD376bCCHgoOyIEHRxL9?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+							+player(1, 'sitting-by-the-window-cover.png', 'sl')
 						.swiper-slide
-							<iframe src="https://open.spotify.com/embed/album/4IGVS2XOD3iDzoREJMccvC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+							+player(2, 'ab67616d0000b273e86d51da8e2773c8e004401e.jpg', 'sl')
 						.swiper-slide
-							<iframe src="https://open.spotify.com/embed/album/3uZKswAssh5KJB64RwyMwp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+							+player(3, 'sitting_by_the_window.png','sl')
+
 
 	// end sEvents

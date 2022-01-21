@@ -1,7 +1,11 @@
 :root {
 	--animate-delay: 1.2s;
 	--fontSizeBase: 14px;
-	@include media-breakpoint-up(xxxl) {
+	--sPT: #{rem(80 / 2)};
+	--sPB: #{rem(90 / 2)};
+	--sTPB: #{rem(40 / 2)};
+
+	@include media-breakpoint-up(xxl) {
 		--fontSizeBase: #{$em-base};
 	}
 	@include media-breakpoint-up(md) {
@@ -10,20 +14,18 @@
 		--sTPB: #{rem(40)};
 	}
 
-	--sPT: #{rem(80 / 2)};
-	--sPB: #{rem(90 / 2)};
-	--sTPB: #{rem(40 / 2)};
-
-		--swiperArrowSize: #{rem(68)};
-		--swiperArrowPosition: calc(-1 * var(--swiperArrowSize) / 2);
-		--swiperBorderColorDef: var(--bs-primary);
-		--swiperColorDef: var(--bs-primary);
-		--swiperBgDef: #ffffff;
-	
+	--swiperArrowSize: #{rem(68)};
+	--swiperArrowPosition: calc(-1 * var(--swiperArrowSize) / 2);
+	--swiperBorderColorDef: var(--bs-primary);
+	--swiperColorDef: var(--bs-primary);
+	--swiperBgDef: #ffffff;
 }
 
-
-@include media-breakpoint-up(xs) {}
-@include media-breakpoint-between(md, xl) {}
-@include media-breakpoint-only(xl) {}
-@include media-breakpoint-down(xs) {}
+@include media-breakpoint-up(xs) {
+}
+@include media-breakpoint-between(md, xl) {
+}
+@include media-breakpoint-only(xl) {
+}
+@include media-breakpoint-down(xs) {
+}

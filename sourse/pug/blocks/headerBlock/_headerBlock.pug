@@ -3,7 +3,7 @@ mixin headerBlock()
 	+b.headerBlock.section#headerBlock&attributes(attributes)
 		.container-xl
 			.row
-				+e.slCol.col-lg-10.col-xl-9.col-xxxl-8
+				+e.slCol.col-lg-10.col-xl-8.col-xxxl-8
 					+b.headerSlider
 						.swiper-container.headerSlider-js
 							.swiper-wrapper
@@ -37,14 +37,13 @@ mixin headerBlock()
 							button.headerSlider-next(type="button")
 								img(src="img/chevron-right.svg", alt="next slide" loading="lazy")
 
-				+e.col.col-lg-2.col-xl-3.col-xxxl-4
+				+e.col.col-lg-2.col-xl-4.col-xxxl-4
 					+e.contentWrapper
 						+e.txtWrap
 							h1 Taylor Hayward
 							+soc()
 						+e.photo
 							picture
-								source(srcset=`img/@2x/webp/photo-2-bg.webp` type="image/webp")
-								img(src=`img/@2x/photo-2-bg.png`, alt="Taylor Hayward")
+								img(src=`img/@2x/photo-2.jpg`, alt="Taylor Hayward")
 
 	// end headerBlock

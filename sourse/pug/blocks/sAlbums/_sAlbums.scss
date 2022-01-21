@@ -1,13 +1,98 @@
 // start .sAlbums
 .sAlbums {
-	
-	iframe {
-		margin-bottom: rem(20px);
+	--sTPB: #{rem(20)};
+	@include  media-breakpoint-only(sm) {
+		.row, .container {
+			--bs-gutter-x: #{rem(10)};
+		}
 	}
 
-	@include media-breakpoint-up(sm) {}
-	@include media-breakpoint-between(md, xl) { }
-	@include media-breakpoint-only(xl) {}
-	@include media-breakpoint-down(sm) {}
+	img {
+		max-width: 100%;
+	}
 
-} // end.sAlbums
+	&__player {
+		padding-bottom: rem(30);
+	}
+
+	&__album {
+		background: rgba($primary, 0.15);
+		padding: rem(7);
+		margin-bottom: rem(10);
+	}
+
+	&__imgWrap {
+		img {
+			width: 100%;
+		}
+	}
+
+	&__npTitle {
+		display: block;
+		@extend .h5;
+		@extend .mono;
+		font-weight: bold;
+	}
+
+	&__tracks {
+		display: flex;
+		justify-content: center;
+		@include roww(#{rem(50)}, m);
+	}
+
+	&__btnPrev, &__btnNext {
+		border-color: transparent;
+		background: transparent;
+		border-radius: 3px;
+		font-size: rem(30);
+		height: rem(40px);
+		line-height: .2;
+		padding: rem(12px);
+		text-decoration: none;
+		@include mt;
+
+		&:hover {
+			background: rgba($primary, .3);
+		}
+	}
+
+	&__plList {
+		list-style: none;
+
+		li {
+			padding: rem(3);
+			cursor: pointer;
+			@include mt();
+
+			&:hover {
+				background: rgba($primary, 0.2);
+			}
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+	}
+	@include media-breakpoint-between(md, xl) {
+	}
+	@include media-breakpoint-only(xl) {
+	}
+	@include media-breakpoint-down(sm) {
+	}
+}
+
+// end.sAlbums
+
+.plyr--audio .plyr__controls {
+	background: transparent;
+	color: $body-color;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.plyr--full-ui input[type=range] {
+	color: $primary;
+}
+
+.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true] {
+	background: rgba($primary, .3);
+}
