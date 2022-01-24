@@ -1,9 +1,20 @@
 
 mixin modal()
-    div(id="modal-call"  style="display: none" )
-        +b.modal-win
-            +form-wrap
-                .text-center
-                    +e.title.form-data.h3.ttu Download music
-                +input("Email",'email')(required)
-                +e.BUTTON.btn.btn(type="submit") Download
+  div(id="modal-call" style="display: none" )
+    +b.modal-win
+      +form-wrap
+        .text-center
+          +e.H3.title.form-data Download
+        +input("Email",'email')(required)
+        .text-center
+          +e.BUTTON.btn.btn.btn-primary(type="submit") Download
+
+  div(id="modal-thanks"  style="display: none" )
+    +b.modal-win
+      +form-wrap
+        +e.H3.title.form-data Links for download
+        ol
+          li: a(href='audio/all_hotel.zip') all
+          li: a(href='audio/album_alph.zip') album alph
+          li: a(href='audio/album_brav.zip') album brav
+          li: a(href='audio/album_char.zip') album char

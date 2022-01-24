@@ -14,9 +14,9 @@ const JSCCommon = {
 			type: 'inline',
 			autoFocus: false,
 			l10n: {
-				Escape: "Закрыть",
-				NEXT: "Вперед",
-				PREV: "Назад",
+				Escape: "Close",
+				NEXT: "Next",
+				PREV: "Back",
 			},
 		});
 		document.querySelectorAll(".modal-close-js").forEach(el => {
@@ -47,11 +47,9 @@ const JSCCommon = {
 					setValue(data.title, '.ttu');
 					setValue(data.text, '.after-headline');
 					setValue(data.btn, '.btn');
-					setValue(data.order, '.order');
 				})
 			})
 		}
-
 		if (linkModal) addData();
 	},
 	toggleMenu() {
@@ -96,6 +94,41 @@ const JSCCommon = {
 	},
 	// /mobileMenu
 
+	sendForm() {
+		let gets = (function () {
+			let a = window.location.search;
+			let b = new Object();
+			let c;
+			a = a.substring(1).split("&");
+			for (let i = 0; i < a.length; i++) {
+				c = a[i].split("=");
+				b[c[0]] = c[1];
+			}
+			return b;
+		})();
+		// form
+		$(document).on('submit', "form", function (e) {
+			e.preventDefault();
+			const th = $(this);
+			let data = th.serialize();
+			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
+			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
+			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
+			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
+			$.ajax({
+				url: 'action.php',
+				type: 'POST',
+				data: data,
+			}).done(function (data) {
+				Fancybox.close();
+				Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
+				setTimeout(function () {
+					th.trigger("reset");
+				}, 4000);
+			}).fail(function () { });
+		});
+	},
+
 	heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 		let vh = window.innerHeight * 0.01;
@@ -123,6 +156,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.heightwindow();
 	JSCCommon.getCurrentYear('.currentYear');
+	JSCCommon.sendForm();
 
 	function setFixedNav() {
 		let topNav = document.querySelector('.top-nav  ');
@@ -170,13 +204,6 @@ function eventHandler() {
 			loadPrevNext: true,
 		},
 	});
-
-	if (window.innerWidth > 992) {
-		let flyItems = document.querySelectorAll('.fly-items-js');
-		for (let item of flyItems) {
-			let parallaxInstance = new Parallax(item);
-		}
-	}
 
 	// players
 	const players = document.querySelectorAll('[data-player]');
@@ -470,9 +497,9 @@ function eventHandler() {
 				}
 			});
 			let loadTrack = function (id) {
-				npTitle.innerHTML = `${tracks[id].name}`;
+				npTitle.innerHTML = `${tracks[0].name}`;
 				index = id;
-				audio.src = mediaPath + tracks[id].file + extension;
+				audio.src = mediaPath + tracks[0].file + extension;
 				updateDownload(id, audio.src);
 			};
 			let updateDownload = function (id, source) {
@@ -492,7 +519,7 @@ function eventHandler() {
 	let eventSlider = new Swiper('.eventSlider-js', {
 		freeMode: true,
 		loop: true,
-		autoHeight: true,
+		autoHeight: false,
 		spaceBetween: 20,
 		//nav
 		navigation: {
@@ -508,12 +535,12 @@ function eventHandler() {
 
 			992: {
 				slidesPerView: 3,
-				spaceBetween: 40
+				spaceBetween: 30
 			},
 
 			1200: {
 				slidesPerView: 3,
-				spaceBetween: 81,
+				spaceBetween: 40,
 			}
 		},
 		//lazy

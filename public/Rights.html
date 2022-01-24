@@ -30,9 +30,7 @@
 				</button>
 				<div class="menu-mobile__inner">
 					<div class="container">
-						<div class="row">
-							<div class="col-12 mb-3"><a class="link-tel" href="tel:(617)6972201">(617) 697-2201</a><br/><a class="link-mail" href="mailto:taylor@taylorhayward.com">taylor@taylorhayward.com</a></div>
-						</div>
+						<div class="mb-3"><a class="link-tel" href="tel:(617)6972201">(617) 697-2201</a><br/><a class="link-mail" href="mailto:taylor@taylorhayward.com">taylor@taylorhayward.com</a></div>
 						<ul class="nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 							<li class="nav__item" itemprop="item"><a class="nav__link" href="/" itemprop="url">Home</a>
 							</li>
@@ -53,7 +51,7 @@
 				<div class="top-nav block-with-lazy">
 					<div class="container-fluid">
 						<div class="row align-items-center">
-							<div class="col-lg-auto col"><a class="top-nav__logo" href="/"><img src="img/@2x/logo.png" alt="Taylor Hayward Logo"/></a>
+							<div class="col-lg-auto col"><a class="top-nav__logo" href="/"><img src="img/@2x/logo-new.png" alt="Taylor Hayward Logo"/></a>
 							</div>
 							<div class="top-nav__menu-wrap col-auto d-none d-lg-flex">
 								<ul class="nav" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
@@ -114,5 +112,52 @@
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<script src="libs//parallax-js/parallax.min.js"></script>
 		<script src="js/common.js"></script>
+		<div id="modal-call" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<input type="hidden" name="example-input-field"/>
+						<input class="order" type="hidden" name="order" value="Application from the website"/>
+						<input class="utm_source" type="hidden" name="utm_source"/>
+						<input class="utm_term" type="hidden" name="utm_term"/>
+						<input class="utm_medium" type="hidden" name="utm_medium"/>
+						<input class="utm_campaign" type="hidden" name="utm_campaign"/>
+						<div class="text-center">
+							<h3 class="form-wrap__title form-data">Download
+							</h3>
+						</div>
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="email" placeholder="Email" name="email" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="text-center">
+							<button class="form-wrap__btn btn btn-primary" type="submit">Download
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="modal-thanks" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<input type="hidden" name="example-input-field"/>
+						<input class="order" type="hidden" name="order" value="Application from the website"/>
+						<input class="utm_source" type="hidden" name="utm_source"/>
+						<input class="utm_term" type="hidden" name="utm_term"/>
+						<input class="utm_medium" type="hidden" name="utm_medium"/>
+						<input class="utm_campaign" type="hidden" name="utm_campaign"/>
+						<h3 class="form-wrap__title form-data">Links for download
+						</h3>
+						<ol>
+							<li><a href="audio/all_hotel.zip">all</a></li>
+							<li><a href="audio/album_alph.zip">album alph</a></li>
+							<li><a href="audio/album_brav.zip">album brav</a></li>
+							<li><a href="audio/album_char.zip">album char</a></li>
+						</ol>
+					</form>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

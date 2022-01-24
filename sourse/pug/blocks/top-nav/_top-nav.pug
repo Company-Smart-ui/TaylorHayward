@@ -4,11 +4,10 @@ mixin mob-mnu()
 			span
 		+e.inner
 			.container
-				.row
-					.col-12.mb-3
-						a.link-tel(href="tel:(617)6972201") (617) 697-2201
-						br
-						a.link-mail(href="mailto:taylor@taylorhayward.com") taylor@taylorhayward.com
+				.mb-3
+					a.link-tel(href="tel:(617)6972201") (617) 697-2201
+					br
+					a.link-mail(href="mailto:taylor@taylorhayward.com") taylor@taylorhayward.com
 				+mnu() 
 	//  mobile menu
 mixin top-nav() 
@@ -18,7 +17,7 @@ mixin top-nav()
 			.row.align-items-center
 				.col-lg-auto.col
 					+e.logo(href="/")
-						img(src="img/@2x/logo.png", alt="Taylor Hayward Logo")
+						img(src="img/@2x/logo-new.png", alt="Taylor Hayward Logo")
 				+e.menu-wrap.col-auto.d-none.d-lg-flex
 					+mnu()
 				+e.constants.col-auto.align-self-center.text-right.d-none.d-md-block

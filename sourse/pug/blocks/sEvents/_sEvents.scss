@@ -61,6 +61,18 @@
 	.sAlbums {
 		&__album {
 			background: $primary-light;
+			box-shadow: inset 0px 0px 10px $primary;
+		}
+
+		&__plList {
+			max-height: rem(97);
+			background: $light;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		&__player {
+			padding-bottom: 0;
 		}
 	}
 
@@ -91,97 +103,9 @@
 		background: transparent;
 		border: none;
 	}
-}
 
-.flyItems {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
+	.swiper-slide {
+		height: 100%;
 
-	.icon {
-		color: $primary;
-		font-size: rem(40);
-	}
-
-	&__item {
-		position: absolute;
-
-		&--1 {
-			top: rem(0px) !important;
-			left: rem(40px) !important;
-		}
-
-		&--2 {
-			top: rem(25px) !important;
-			left: 50% !important;
-		}
-
-		&--3 {
-			top: rem(20px) !important;
-			right: rem(40px);
-			left: auto !important;
-
-			@include media-breakpoint-up(xxxl) {
-				right: 30%;
-			}
-		}
-
-		&--4 {
-			top: auto !important;
-			bottom: rem(30px);
-			left: rem(70px) !important;
-		}
-
-		&--5 {
-			top: rem(50px) !important;
-			left: 40% !important;
-
-			.icon {
-				font-size: rem(60);
-			}
-		}
-
-		&--6 {
-			top: auto !important;
-			left: auto !important;
-			right: rem(90px);
-			bottom: rem(20px);
-		}
-
-		&--7 {
-			top: auto !important;
-			bottom: rem(30px);
-			left: 40% !important;
-		}
-
-		&--8 {
-			top: 60% !important;
-			left: 2% !important;
-		}
-
-		&--9 {
-			top: 180px !important;
-			left: 34% !important;
-		}
-
-		&--10 {
-			top: -50px !important;
-			left: 35% !important;
-		}
-
-		&--11 {
-			left: auto !important;
-			right: 20%;
-			top: 10% !important;
-		}
-	}
-}
-
-.fly-items-js {
-	@include media-breakpoint-down(lg) {
-		display: none;
 	}
 }

@@ -169,7 +169,7 @@
 		margin-right: 30px;
 	}
 	@include media-breakpoint-up(xl) {
-		margin-left: calc(-1 * (100vw - 155.5%) / 2);
+		margin-left: calc(-1 * (100vw - 153%) / 2);
 	}
 	@include media-breakpoint-up(xxxl) {
 		margin-left: calc(-1 * (100vw - 154%) / 2);

@@ -5,17 +5,13 @@ mixin sAlbums()
       +b.section-title
         h2 Music
       +player(1, 'sitting-by-the-window-cover.png')
-        p Download:
-          a(href='audio/album_alph.zip') zip
+        a.link-modal-js(href="#modal-thanks") Download: zip
       +player(2, 'ab67616d0000b273e86d51da8e2773c8e004401e.jpg')
-        p Download:
-          a(href='audio/album_brav.zip') zip
+        a.link-modal-js(href="#modal-call") Download: zip
       +player(3, 'sitting_by_the_window.png')
-        p Download:
-          a(href='album_char.zip') zip
+        a.link-modal-js(href="#modal-call") Download: zip
       +player(4, 'early_recordings.png')
-        p Download:
-          a(href='audio/all_hotel.zip') zip
+        a.link-modal-js(href="#modal-call") Download: zip
 
   // end sAlbums
 
@@ -45,6 +41,7 @@ mixin player(i, img, sl)
               +e.BUTTON.btnNext(type="button") →
           +e.plwrap
             +e.UL.plList
+            block
       else
         .row
           .col-sm-2

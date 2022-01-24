@@ -1,11 +1,5 @@
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var JSCCommon = {
@@ -23,9 +17,9 @@ var JSCCommon = {
 			type: 'inline',
 			autoFocus: false,
 			l10n: {
-				Escape: "Закрыть",
-				NEXT: "Вперед",
-				PREV: "Назад"
+				Escape: "Close",
+				NEXT: "Next",
+				PREV: "Back"
 			}
 		});
 		document.querySelectorAll(".modal-close-js").forEach(function (el) {
@@ -54,7 +48,6 @@ var JSCCommon = {
 					setValue(data.title, '.ttu');
 					setValue(data.text, '.after-headline');
 					setValue(data.btn, '.btn');
-					setValue(data.order, '.order');
 				});
 			});
 		}
@@ -112,6 +105,46 @@ var JSCCommon = {
 		}
 	},
 	// /mobileMenu
+	sendForm: function sendForm() {
+		var gets = function () {
+			var a = window.location.search;
+			var b = new Object();
+			var c;
+			a = a.substring(1).split("&");
+
+			for (var i = 0; i < a.length; i++) {
+				c = a[i].split("=");
+				b[c[0]] = c[1];
+			}
+
+			return b;
+		}(); // form
+
+
+		$(document).on('submit', "form", function (e) {
+			e.preventDefault();
+			var th = $(this);
+			var data = th.serialize();
+			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
+			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
+			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
+			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
+			$.ajax({
+				url: 'action.php',
+				type: 'POST',
+				data: data
+			}).done(function (data) {
+				Fancybox.close();
+				Fancybox.show([{
+					src: "#modal-thanks",
+					type: "inline"
+				}]);
+				setTimeout(function () {
+					th.trigger("reset");
+				}, 4000);
+			}).fail(function () {});
+		});
+	},
 	heightwindow: function heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 		var vh = window.innerHeight * 0.01; // Then we set the value in the --vh custom property to the root of the document
@@ -139,6 +172,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.heightwindow();
 	JSCCommon.getCurrentYear('.currentYear');
+	JSCCommon.sendForm();
 
 	function setFixedNav() {
 		var topNav = document.querySelector('.top-nav  ');
@@ -180,26 +214,7 @@ function eventHandler() {
 		}
 	}, "lazy", {
 		loadPrevNext: true
-	}));
-
-	if (window.innerWidth > 992) {
-		var flyItems = document.querySelectorAll('.fly-items-js');
-
-		var _iterator = _createForOfIteratorHelper(flyItems),
-				_step;
-
-		try {
-			for (_iterator.s(); !(_step = _iterator.n()).done;) {
-				var item = _step.value;
-				var parallaxInstance = new Parallax(item);
-			}
-		} catch (err) {
-			_iterator.e(err);
-		} finally {
-			_iterator.f();
-		}
-	} // players
-
+	})); // players
 
 	var players = document.querySelectorAll('[data-player]');
 	var audios = document.querySelectorAll('[data-audio]');
@@ -468,9 +483,9 @@ function eventHandler() {
 			});
 
 			var loadTrack = function loadTrack(id) {
-				npTitle.innerHTML = "".concat(tracks[id].name);
+				npTitle.innerHTML = "".concat(tracks[0].name);
 				index = id;
-				audio.src = mediaPath + tracks[id].file + extension;
+				audio.src = mediaPath + tracks[0].file + extension;
 				updateDownload(id, audio.src);
 			};
 
@@ -492,7 +507,7 @@ function eventHandler() {
 	var eventSlider = new Swiper('.eventSlider-js', {
 		freeMode: true,
 		loop: true,
-		autoHeight: true,
+		autoHeight: false,
 		spaceBetween: 20,
 		//nav
 		navigation: {
@@ -506,11 +521,11 @@ function eventHandler() {
 			},
 			992: {
 				slidesPerView: 3,
-				spaceBetween: 40
+				spaceBetween: 30
 			},
 			1200: {
 				slidesPerView: 3,
-				spaceBetween: 81
+				spaceBetween: 40
 			}
 		},
 		//lazy

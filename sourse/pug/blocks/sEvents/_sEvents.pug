@@ -1,35 +1,11 @@
 mixin sEvents()
 	// start sEvents
 	+b.SECTION.sEvents.section#sEvents&attributes(attributes)
-		+b.flyItems.fly-items-js
-			+e.item--1(data-depth="0.1")
-				+icon('music-solid')
-			+e.item--2(data-depth="0.2")
-				+icon('music-solid')
-			+e.item--3(data-depth="0.3")
-				+icon('piano')
-			+e.item--4(data-depth="0.1")
-				+icon('piano')
-			+e.item--5(data-depth="0.4")
-				+icon('note-piano')
-			+e.item--6(data-depth="0.1")
-				+icon('note-piano')
-			+e.item--7(data-depth="0.5")
-				+icon('note-piano')
-			+e.item--8(data-depth="0.5")
-				+icon('music-solid')
-			+e.item--9(data-depth="0.1")
-				+icon('play')
-			+e.item--10(data-depth="0.4")
-				+icon('audio')
-			+e.item--11(data-depth="0.6")
-				+icon('audio')
 		.container
 			.row
 				.col
 					+b.section-title
 						h2 Music
-						// +e.showAll.h5(href="/music.html") Listen to everything
 				.col-auto
 					+e.controls
 						button.eventSlider-prev(type="button")
@@ -41,12 +17,16 @@ mixin sEvents()
 					.swiper-wrapper
 						.swiper-slide
 							+player(4, 'early_recordings.png','sl')
+								a.link-modal-js(href="#modal-call") Download: zip
 						.swiper-slide
 							+player(1, 'sitting-by-the-window-cover.png', 'sl')
+								a.link-modal-js(href="#modal-call") Download: zip
 						.swiper-slide
 							+player(2, 'ab67616d0000b273e86d51da8e2773c8e004401e.jpg', 'sl')
+								a.link-modal-js(href="#modal-call") Download: zip
 						.swiper-slide
 							+player(3, 'sitting_by_the_window.png','sl')
+								a.link-modal-js(href="#modal-call") Download: zip
 
 
 	// end sEvents

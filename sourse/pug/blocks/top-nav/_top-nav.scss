@@ -18,8 +18,11 @@
 			@include media-breakpoint-up(sm) {
 				max-width: rem(250);
 			}
-			@include  media-breakpoint-up(xxl) {
-				max-width: calc(#{rem(200)} + 13vw);
+			@include media-breakpoint-up(lg) {
+				max-width: rem(330);
+			}
+			@include  media-breakpoint-up(xxxl) {
+				max-width: calc(#{rem(190)} + 12vw);
 			}
 		 }
 	 }
@@ -61,7 +64,7 @@
 
 	@include media-breakpoint-up(lg) {
 		columns: 2;
-
+		margin-bottom: rem(-11);
 	}
 	@include  media-breakpoint-up(xxxl) {
 		max-width: rem(320);
@@ -88,8 +91,7 @@
 }
 
 .link-tel {
-	@extend .h5;
-	@extend .mono;
+	font-size: rem(20);
 	@extend .text-body;
 	display: inline-block;
 	letter-spacing: 0.06em;
@@ -98,7 +100,7 @@
 }
 
 .link-mail {
-	@extend .h5;
+	font-size: rem(20);
 }
 
 body {
@@ -107,6 +109,12 @@ body {
 			&__menu-wrap {
 				flex-grow: 1;
 				justify-content: center;
+			}
+
+			&__constants {
+				@include  media-breakpoint-up(lg) {
+					padding-right: rem(40);
+				}
 			}
 		}
 	}
